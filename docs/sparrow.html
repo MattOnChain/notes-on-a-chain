@@ -149,6 +149,34 @@
 <blockquote>
 <p>Reference: <a href="https://docs.ordinals.com/guides/collecting/sparrow-wallet.html">Ordinals.com</a> guide to collecting Ordinals in a Sparrow Wallet</p>
 </blockquote>
+<h2 id="understanding-utxos"><a class="header" href="#understanding-utxos">Understanding UTXOs</a></h2>
+<p>Each time you receive sats, a new UTXO (Unspent Transaction Output) is created. Each UTXO can be managed separately. When sending an asset, you will typically select one UTXO.</p>
+<p>Sparrow wallet is unique in the level of coin-control it provides. This is the detailed view of UTXOs and the granular ability to control which are spent (sent).</p>
+<h2 id="freezing-utxos"><a class="header" href="#freezing-utxos">Freezing UTXOs</a></h2>
+<blockquote>
+<p>Important: It can be tricky to send Ordinals from Sparrow. As a means of protecting Ordinals from being accidentally lost when intending to send a specific asset, you should get in the habit of freezing all UTXOs as soon as transactions are confirmed.</p>
+</blockquote>
+<p>UTXOs can be frozen and unfrozen as a way to protect them from being included with other UTXOs when sending Ordinals from Sparrow. </p>
+<p>To freeze and unfreeze a UTXO, simply right-click the Transaction Output and select the appropriate action.</p>
+<h2 id="viewing-received-inscriptions"><a class="header" href="#viewing-received-inscriptions">Viewing Received Inscriptions</a></h2>
+<p>Completed (confirmed) transactions can be viewed in the Transactions tab. And once confirmed, you can view your inscription by starting on the UTXO tab.</p>
+<ol>
+<li>From the UTXO tab, locate the UTXO labelled to contain the desired Ordinal</li>
+<li>Right-click on the Output value and select Copy Transaction Output</li>
+<li>Go to <a href="https://ordinals.com">Ordinals.com</a>, paste the Transaction Output in the Search bar and search to view the contents of the UTXO.
+<ol>
+<li>If this is a valid Ordinal, the contents (i.e. image) will be displayed</li>
+</ol>
+</li>
+<li>Click on the image to view Inscription number, ID and other values</li>
+</ol>
+<h2 id="inspecting-an-inscription-before-sending"><a class="header" href="#inspecting-an-inscription-before-sending">Inspecting an Inscription Before Sending</a></h2>
+<p>Before sending an Ordinal, it is wise to review a few elements to ensure it is safe to send. To do this, view the inscriptions on <a href="https://ordinals.com">Ordinals.com</a> and check that:</p>
+<ol>
+<li>The output identifier matches the ordinal identifier</li>
+<li>The offset is 0 (this indicates the inscription is properly located on the first sat in the UTXO)</li>
+<li>The output value has enough sats to cover the transaction fee. Note that if more sats are required, you will need to Pad the UTXO as explained elsewhere in this document</li>
+</ol>
 
                     </main>
 

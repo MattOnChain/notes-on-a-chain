@@ -147,7 +147,8 @@
                     <main>
                         <h1 style="font-size: 48px;"> </h1>
 <h1 style="font-size: 48px;">Notes On a Chain</h1>
-<h2 id="a-collection-of-technical-notes"><a class="header" href="#a-collection-of-technical-notes">A Collection of Technical Notes</a></h2>
+<h2 id="an-ordinals-documentation-repository"><a class="header" href="#an-ordinals-documentation-repository">An Ordinals Documentation Repository</a></h2>
+<p>Compiled by <a href="https://twitter.com/MattLxNFT">MattInCT</a></p>
 <p>Version 1.0</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Welcome to <a href="https://www.notesonachain.com">Notes On a Chain</a>, an Ordinals documentation repository.</p>
@@ -156,44 +157,132 @@
 <blockquote>
 <p>&quot;Bitcoin is beautifully engineered because it is designed to do one thing and one thing only: send money. It doesn't try to be all things to all people. It doesn't compromise on its fundamental principles. It's a robust, elegant solution that empowers individuals to transact in a decentralized and permissionless manner.&quot; - Andreas Antonopoulos</p>
 </blockquote>
-<p>Then in January 2023, Casey Rodarmor launched the Ordinals protocol as a way to parse the bitcoin blockchain and index its contents in new and exciting ways. With the introduction of his &quot;Ordinal Theory&quot;, Bitcoin was not directly altered and therefore became no less elegant as a result of Ordinals and their design.</p>
+<p>Then in December 2022, Casey Rodarmor launched the open-source Ordinals protocol called &quot;Ord&quot; that runs on top of a Bitcoin full node. Ord parses the bitcoin blockchain and indexes its contents in new and exciting ways. With the introduction of his &quot;Ordinal Theory&quot;, Bitcoin was not directly altered and therefore became no less elegant as a result of Ordinals and their design.</p>
 <p>When delving into the world of Ordinals, one quickly realizes that there are numerous tools and methodologies to accomplish various tasks. On one hand, this offers flexibility and creativity, enabling individuals to explore different avenues. On the other hand, it can lead to confusion and inefficiency.</p>
 <p>The purpose of this collection is to address this dilemma directly. While the approaches outlined in this collection are not purported to be the definitive way of accomplishing any specific task, they aim to provide a solid foundation for individuals seeking a reliable method. By narrowing down the choices and presenting a curated selection, I hope to alleviate the confusion and enable readers with tried and tested practices.</p>
 <p>It is important to note that the world of Bitcoin and Ordinals is ever-evolving, and new techniques, technologies, and best practices emerge continuously. Therefore, this collection serves as a snapshot in time, capturing a specific set of approaches that have proven effective at the time of writing.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-1"><a class="header" href="#chapter-1-1">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-2"><a class="header" href="#chapter-1-2">Chapter 1</a></h1>
+<p>P.S. The notes were taken while performing actions on a Mac. Many of the details are very specific to macOS. As required you will need to research how to handle such things on Windows.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ordinals"><a class="header" href="#ordinals">Ordinals</a></h1>
+<p>Ordinals are the result of Ordinal Theory.</p>
+<p>Ordinal Theory is first and foremost a protocol for assigning serial numbers to satoshis.</p>
+<p>A satoshi is the smallest unit of currency on the Bitcoin network. One bitcoin is comprised of 100,000,000 satoshis.</p>
+<p>Individual satoshis can be inscribed with data such as an image or string of text. Like any satoshit, they can then be held in Bitcoin wallets and transferred with a Bitcoin transaction.</p>
+<p>These inscribed satoshis - or &quot;inscriptions&quot; - are referred to as Ordinals. </p>
+<blockquote>
+<p>Much in the way a Bitcoin wallet parses the blockchain data to reveal your balance and transaction history, think of Ordinal Theory as a new lens through which to view the same blockchain. This new lens reveals images and other content found alongside transaction data.</p>
+</blockquote>
+<p>Ordinal Theory created two main elements:</p>
+<ol>
+<li>Each individual <strong>Sat</strong> is tracked with a sequential sat numbering scheme. To distinguish them for purposes of this discussion, these are uninscribed sats.</li>
+<li><strong>Ordinals</strong> are inscribed sats tracked with a sequential Ordinal numbering scheme.</li>
+</ol>
+<h2 id="how-does-it-work"><a class="header" href="#how-does-it-work">How Does It Work?</a></h2>
+<p>Inscriptions are created when data is written to a satoshi in accordance with the inscription content model. In addition to the content itself, the inscription includes an Ordinal identifier (Ord) and a content type (or MIME type) that allows readers to know how to handle the content.</p>
+<p>This is the same MIME data model used by the web, allowing inscriptions to evolve with the web, in support of any content supported by web browsers - all without requiring changes to the underlying protocol.</p>
+<p>Ordinal Theory did not change how the blockchain works. Instead, two previous Bitcoin upgrades (SegWit and Taproot) combined to make it possible to storage larger data while in a way that it is more affordable (cheaper fees tied to the payload).</p>
+<p>Unlike Ethereum NFTs that have content stored off-chain - typically on IPFS - Ordinals content is stored directly on-chain. The inscription data is posted as part of the &quot;witness&quot; data - the portion of the transaction that stores signatures.</p>
+<p>Ordinals are always immutable such that it is impossible to alter an Ordinal after it has been created.</p>
+<p>If you believe the Bitcoin network is permanent, then the content of Ordinals is permanent as well. Ordinals will outlive us all. This is a huge difference of Ethereum NFTs wherein eventually someone will stop paying for persistent IPFS storage and the NFT will cease to reveal an image.</p>
+<h2 id="does-this-hinder-bitcoins-ability-to-function-as-decentralized-money"><a class="header" href="#does-this-hinder-bitcoins-ability-to-function-as-decentralized-money">Does this Hinder Bitcoin's Ability to Function as Decentralized Money?</a></h2>
+<p>Bitcoin is and will always be a solution designed to decentralize finance.</p>
+<p>Ordinal Theory should help Bitcoin achieve its mission. First, inscriptions incur increased fees for miners. These miner fees help improve the security and resiliency of the network.</p>
+<p>Ordinals will draw in new participants that start collecting digital artifacts, but eventually build an increased appreciation for Bitcoin as decentralized money.</p>
+<p>Builders will build. More use cases for and users of Bitcoin will compel wallets and other solutions to improve and create wholly new user experiences. In this way, Ordinals has the potential to spark a new wave of development around the Bitcoin blockchain.</p>
+<p>More people will be compelled to run a Bitcoin full node, increasing the strength of the network.</p>
+<p>Inscriptions will stress test the network, serving to identify opportunities for improvement as Bitcoin continues to evolve.</p>
+<p>Ordinals make Bitcoin exciting to OGs and new participants alike.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="inscribing"><a class="header" href="#inscribing">Inscribing</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="padding"><a class="header" href="#padding">Padding</a></h1>
+<p>UNDER CONSTRUCTION</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sat-hunting"><a class="header" href="#sat-hunting">Sat Hunting</a></h1>
 <p>UNDER CONSTRUCTION</p>
+<h2 id="interesting-sats"><a class="header" href="#interesting-sats">Interesting Sats</a></h2>
+<p>Bitcoin has periodic events that create a system of rarity for sats:</p>
+<ol>
+<li>Common: Any sat that is not the first of its block</li>
+<li>Uncommon: The first stat of each block (every 10 minutes)</li>
+<li>Rare: The first sat of each difficult adjustment period (roughly every 2 weeks)</li>
+<li>Epic: The first sat of each halving cycle (roughly every 4 years)</li>
+<li>Legendary: The first sat of each cycle (roughly every 24 years)</li>
+<li>Mythic: The first stat of the genesis block (once, the first block)</li>
+</ol>
+<p>Sat hunting is the process of reviewing individual sats in hopes of finding something other than Common sats.</p>
+<p>Collectors may desire sats based on any criteria deemed interesting. Examples include:</p>
+<ol>
+<li>Vintage: Sats mined in the first 1,000 blocks</li>
+<li>Events: Sats tied to a historical event such as those from Block 78, the first Bitcoin transaction sent from Satoshi Nakamoto to Hal Finney.</li>
+<li>Sat names: Using a base-26 encoding (numbers are converted to letters) each satoshi has a unique name value. Some names are more interesting than others.</li>
+<li>Sat number or name palindromes (reads the same backward as forward).</li>
+</ol>
 <blockquote>
 <p>Reference: @ItsFrankenSense shared a <a href="https://twitter.com/itsfrankensense/status/1634186660220121088?s=61&amp;t=ge5cRPQmLIF1TEYO9qnLrg">thread on how to sat hunt</a> and later followed it up with a <a href="https://twitter.com/itsfrankensense/status/1639202586074152969?s=61&amp;t=WKdE58PhrANZt59nGyyk1A">thread on how to extract sats</a>.</p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-3"><a class="header" href="#chapter-1-3">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-4"><a class="header" href="#chapter-1-4">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-5"><a class="header" href="#chapter-1-5">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-6"><a class="header" href="#chapter-1-6">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-7"><a class="header" href="#chapter-1-7">Chapter 1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="finding"><a class="header" href="#finding">Finding</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="extracting"><a class="header" href="#extracting">Extracting</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="brc-20"><a class="header" href="#brc-20">BRC-20</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="other-inscriptions"><a class="header" href="#other-inscriptions">Other Inscriptions</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wallets"><a class="header" href="#wallets">Wallets</a></h1>
+<p>UNDER CONSTRUCTION</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sparrow"><a class="header" href="#sparrow">Sparrow</a></h1>
 <p>UNDER CONSTRUCTION</p>
 <blockquote>
 <p>Reference: <a href="https://docs.ordinals.com/guides/collecting/sparrow-wallet.html">Ordinals.com</a> guide to collecting Ordinals in a Sparrow Wallet</p>
 </blockquote>
+<h2 id="understanding-utxos"><a class="header" href="#understanding-utxos">Understanding UTXOs</a></h2>
+<p>Each time you receive sats, a new UTXO (Unspent Transaction Output) is created. Each UTXO can be managed separately. When sending an asset, you will typically select one UTXO.</p>
+<p>Sparrow wallet is unique in the level of coin-control it provides. This is the detailed view of UTXOs and the granular ability to control which are spent (sent).</p>
+<h2 id="freezing-utxos"><a class="header" href="#freezing-utxos">Freezing UTXOs</a></h2>
+<blockquote>
+<p>Important: It can be tricky to send Ordinals from Sparrow. As a means of protecting Ordinals from being accidentally lost when intending to send a specific asset, you should get in the habit of freezing all UTXOs as soon as transactions are confirmed.</p>
+</blockquote>
+<p>UTXOs can be frozen and unfrozen as a way to protect them from being included with other UTXOs when sending Ordinals from Sparrow. </p>
+<p>To freeze and unfreeze a UTXO, simply right-click the Transaction Output and select the appropriate action.</p>
+<h2 id="viewing-received-inscriptions"><a class="header" href="#viewing-received-inscriptions">Viewing Received Inscriptions</a></h2>
+<p>Completed (confirmed) transactions can be viewed in the Transactions tab. And once confirmed, you can view your inscription by starting on the UTXO tab.</p>
+<ol>
+<li>From the UTXO tab, locate the UTXO labelled to contain the desired Ordinal</li>
+<li>Right-click on the Output value and select Copy Transaction Output</li>
+<li>Go to <a href="https://ordinals.com">Ordinals.com</a>, paste the Transaction Output in the Search bar and search to view the contents of the UTXO.
+<ol>
+<li>If this is a valid Ordinal, the contents (i.e. image) will be displayed</li>
+</ol>
+</li>
+<li>Click on the image to view Inscription number, ID and other values</li>
+</ol>
+<h2 id="inspecting-an-inscription-before-sending"><a class="header" href="#inspecting-an-inscription-before-sending">Inspecting an Inscription Before Sending</a></h2>
+<p>Before sending an Ordinal, it is wise to review a few elements to ensure it is safe to send. To do this, view the inscriptions on <a href="https://ordinals.com">Ordinals.com</a> and check that:</p>
+<ol>
+<li>The output identifier matches the ordinal identifier</li>
+<li>The offset is 0 (this indicates the inscription is properly located on the first sat in the UTXO)</li>
+<li>The output value has enough sats to cover the transaction fee. Note that if more sats are required, you will need to Pad the UTXO as explained elsewhere in this document</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xverse--hiro"><a class="header" href="#xverse--hiro">Xverse &amp; Hiro</a></h1>
 <p>UNDER CONSTRUCTION</p>
 <blockquote>
 <p>Note: While the same seed phrase may be used to import a wallet into both Hiro and Xverse, each solution uses a different derivation path and therefore uses different addresses. That is to say that if, for example, you have $BTC in Xverse (which uses Wrapped Segwit) and you import that wallet into Hiro (which uses Native Segwit), Hiro will not provide access to the $BTC because Hiro will not recognize and display the address used in Xverse.</p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-8"><a class="header" href="#chapter-1-8">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-9"><a class="header" href="#chapter-1-9">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-10"><a class="header" href="#chapter-1-10">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-11"><a class="header" href="#chapter-1-11">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-12"><a class="header" href="#chapter-1-12">Chapter 1</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-13"><a class="header" href="#chapter-1-13">Chapter 1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bns-btc-addresses"><a class="header" href="#bns-btc-addresses">BNS .btc Addresses</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unisat"><a class="header" href="#unisat">UniSat</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="other-wallets"><a class="header" href="#other-wallets">Other Wallets</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="emblem-vault"><a class="header" href="#emblem-vault">Emblem Vault</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bitcoin-node-setup"><a class="header" href="#bitcoin-node-setup">Bitcoin Node Setup</a></h1>
+<p>UNDER CONSTRUCTION</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ord-setup"><a class="header" href="#ord-setup">Ord Setup</a></h1>
+<p>UNDER CONSTRUCTION</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="links"><a class="header" href="#links">Links</a></h1>
 <blockquote>
 <p>Caution: Do your own research and use these links at your own risk.</p>
 </blockquote>
-<h2 id="wallets"><a class="header" href="#wallets">Wallets</a></h2>
+<h2 id="wallets-1"><a class="header" href="#wallets-1">Wallets</a></h2>
 <p><a href="https://sparrowwallet.com/">Sparrow</a> is a desktop Bitcoin wallet designed to provide as much detail as possible about your transactions and UTXOs (Unspent Transaction Outputs). While not designed to support Ordinals, Sparrow's advanced coin-control features make it a uniquely powerful tool enabling sat extraction, padding of Ordinals and more.</p>
 <p><a href="https://www.xverse.app/">Xverse</a> is a user-friendly Bitcoin wallet designed for managing BTC, Ordinals and BRC-20. Web3-enabled, it is integrated with an increasing number of websites facilitating login and purchasing. It also supports Stacks ($STX) as is required to register a .btc domain on <a href="https://btc.us/">btc.us</a>. Xverse is available as a desktop browser extension and a mobile app. Xverse is a fork of Hiro.</p>
 <p><a href="https://wallet.hiro.so/">Hiro</a> is akin to Xverse as it lets you connect to apps and manage assets secured on Bitcoin and BTC L2s including the Stacks blockchain. Hiro is available as a desktop browser extension and a mobile app.</p>
@@ -263,7 +352,27 @@
 <p><a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a> was used to create this document. It is a command line tool to create books with Markdown.</p>
 <p><a href="https://code.visualstudio.com/">Visual Studio Code</a> (with the Markdown All in One and Code Spell Checker extensions) is the code editor used to create the contents of this document. </p>
 <p><a href="https://www.text-image.com/convert/">Text-Image.com</a> turns an image into ASCII art (text art) as may be useful to create low-cost images while testing inscriptions.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-14"><a class="header" href="#chapter-1-14">Chapter 1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="who-to-follow"><a class="header" href="#who-to-follow">Who to Follow</a></h1>
+<p>In no particular order, here are some people you may want to follow on Twitter.</p>
+<p><a href="https://twitter.com/RareSatSociety">Rare Satoshi Society</a></p>
+<p><a href="https://twitter.com/null_ish">Nullish</a></p>
+<p><a href="https://twitter.com/LeonidasNFT">Leonidas</a></p>
+<p><a href="https://twitter.com/udiWertheimer">Udi Wertheimer</a></p>
+<p><a href="https://twitter.com/BitGod21">BitGod</a></p>
+<p><a href="https://twitter.com/ZK_shark">zk-Shark</a></p>
+<p><a href="https://twitter.com/dazza9x">Dazza9x</a></p>
+<p><a href="https://twitter.com/Hosman_NFT">H.O</a></p>
+<p><a href="https://twitter.com/rodarmor">Casey Rodarmor</a></p>
+<p><a href="https://twitter.com/veryordinally">Ordinally</a></p>
+<p><a href="https://twitter.com/raphjaph">Raph</a></p>
+<p><a href="https://twitter.com/TO">Trevor</a></p>
+<p><a href="https://twitter.com/huuep">Danny Huuep</a></p>
+<p><a href="https://twitter.com/timechainord">TimechainOrd</a></p>
+<p><a href="https://twitter.com/realizingerin">Erin</a></p>
+<p><a href="https://twitter.com/psifour">Psifour</a></p>
+<p><a href="https://twitter.com/cbspears">CBSpears</a></p>
+<p><a href="https://twitter.com/rot13maxi">Rijndael</a></p>
+<p><a href="https://twitter.com/pazNGMI">Paz</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="glossary"><a class="header" href="#glossary">Glossary</a></h1>
 <h2 id="cursed-inscriptions"><a class="header" href="#cursed-inscriptions">Cursed Inscriptions</a></h2>
 <p>Inscriptions where negative numbers are displayed and inscriptions are counted backwards. Xverse, Hiro and other well-known wallets will not recognize Cursed Inscriptions and therefore Sparrow is the only wallet capable of handling them.</p>
@@ -278,8 +387,9 @@
 <p>1 BTC = 100,000,000 sats</p>
 </blockquote>
 <h2 id="whoredinals"><a class="header" href="#whoredinals">Whoredinals</a></h2>
-<p>See <a href="https://twitter.com/realizingerin/status/1660134792678055937?s=61&amp;t=3Z-CfuKCO3QzjWp7sUTchg">Tweet</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1-15"><a class="header" href="#chapter-1-15">Chapter 1</a></h1>
+<p>See this <a href="https://twitter.com/realizingerin/status/1660134792678055937?s=61&amp;t=3Z-CfuKCO3QzjWp7sUTchg">Tweet</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="macos-tips"><a class="header" href="#macos-tips">macOS Tips</a></h1>
+<p>UNDER CONSTRUCTION</p>
 
                     </main>
 
