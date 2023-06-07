@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>mdBook</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ordinals.html"><strong aria-hidden="true">1.</strong> Ordinals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inscribing.html"><strong aria-hidden="true">1.1.</strong> Inscribing</a></li><li class="chapter-item expanded "><a href="padding.html"><strong aria-hidden="true">1.2.</strong> Padding</a></li></ol></li><li class="chapter-item expanded "><a href="sat-hunting.html"><strong aria-hidden="true">2.</strong> Sat Hunting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="finding.html"><strong aria-hidden="true">2.1.</strong> Finding</a></li><li class="chapter-item expanded "><a href="extracting.html"><strong aria-hidden="true">2.2.</strong> Extracting</a></li></ol></li><li class="chapter-item expanded "><a href="brc20.html"><strong aria-hidden="true">3.</strong> BRC-20</a></li><li class="chapter-item expanded "><a href="inscriptions-other.html"><strong aria-hidden="true">4.</strong> Other Inscriptions (.sats Addresses)</a></li><li class="chapter-item expanded "><a href="wallets.html"><strong aria-hidden="true">5.</strong> Wallets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sparrow.html"><strong aria-hidden="true">5.1.</strong> Sparrow</a></li><li class="chapter-item expanded "><a href="xverse-hiro.html"><strong aria-hidden="true">5.2.</strong> Xverse & Hiro</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bns-btc-addresses.html"><strong aria-hidden="true">5.2.1.</strong> BNS .btc Addresses</a></li></ol></li><li class="chapter-item expanded "><a href="unisat.html"><strong aria-hidden="true">5.3.</strong> UniSat</a></li><li class="chapter-item expanded "><a href="wallets-other.html"><strong aria-hidden="true">5.4.</strong> Other Wallets</a></li></ol></li><li class="chapter-item expanded "><a href="emblem-vault.html"><strong aria-hidden="true">6.</strong> Emblem Vault</a></li><li class="chapter-item expanded "><a href="node-setup.html"><strong aria-hidden="true">7.</strong> Node Setup</a></li><li class="chapter-item expanded "><a href="ord-setup.html"><strong aria-hidden="true">8.</strong> Ord Setup</a></li><li class="chapter-item expanded "><a href="links.html"><strong aria-hidden="true">9.</strong> Links</a></li><li class="chapter-item expanded "><a href="who-to-follow.html"><strong aria-hidden="true">10.</strong> Who to Follow</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">11.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="macos-tips.html"><strong aria-hidden="true">12.</strong> macOS Tips</a></li><li class="chapter-item expanded "><a href="mdbook.html" class="active"><strong aria-hidden="true">13.</strong> mdBook</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="mdbook"><a class="header" href="#mdbook">mdBook</a></h1>
+<p><a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a> was used to create this document. It is a command line tool to create books with Markdown. Markdown a simple way to format text that looks great on any device. It doesn’t do anything fancy like change the font size, color, or type - just the essentials to keep it nice and clean. If you don't like mdBook, you may consider <a href="https://www.gitbook.com">GitBook</a> as a preferable alternative.</p>
+<h2 id="install-mbook"><a class="header" href="#install-mbook">Install mBook</a></h2>
+<ul>
+<li>Create a new folder like \LocalUserName\mdBook</li>
+<li>Download the appropriate executable binary from <a href="https://github.com/rust-lang/mdBook/releases">GitHub</a></li>
+<li>Unpack the file and move mdbook to the directory created above</li>
+<li>mdBook is a CLI tool and therefore all actions are done in Terminal Mode</li>
+<li>Add the mdBook folder to the PATH variable</li>
+</ul>
+<pre><code>nano ~/.zshrc
+</code></pre>
+<ul>
+<li>Add the following entry to the zshrc file</li>
+</ul>
+<pre><code>#Adding mdBook to PATH
+export PATH=$PATH:~/mdBook
+</code></pre>
+<ul>
+<li>Save and exit: CTRL-X, Y, Enter</li>
+<li>Restart zshrc</li>
+</ul>
+<pre><code>source ~/.zshrc
+</code></pre>
+<ul>
+<li>Verify the change was made</li>
+</ul>
+<pre><code>echo $PATH
+</code></pre>
+<h2 id="create-a-book"><a class="header" href="#create-a-book">Create a Book</a></h2>
+<ul>
+<li>Initialize the new book</li>
+</ul>
+<pre><code>mdbook init your-book-title
+</code></pre>
+<ul>
+<li>Do you want a .gitignore to be created = y</li>
+<li>Your mdBook is now located in your home folder</li>
+</ul>
+<h2 id="editing-the-book-with-visual-studio-code"><a class="header" href="#editing-the-book-with-visual-studio-code">Editing the Book with Visual Studio Code</a></h2>
+<p>Visual Studio Code (or VS Code) is a source code editor. In this case, it is a simple and effective tool for editing the .md Markdown files that are the source files from which the final HTML book will be rendered. In other words, you will write your content in VS Code.</p>
+<ul>
+<li>Download <a href="https://code.visualstudio.com/docs/setup/mac">Visual Studio Code</a> and move it to your Applications folder</li>
+<li>In VS Code, install required extensions
+<ul>
+<li>Settings &gt; Extensions &gt; Markdown All in One &gt; Install</li>
+<li>Settings &gt; Extensions &gt; Code Spell Check &gt; Install</li>
+</ul>
+</li>
+<li>In Visual Studio Code, open the book folder and desired .md file
+<ul>
+<li>Bottom right, toggle HTML to Markdown for editing .md files</li>
+<li>Top right, click Open Preview on the Side</li>
+</ul>
+</li>
+<li>Make edits and save files as needed </li>
+</ul>
+<h2 id="mdbook-components"><a class="header" href="#mdbook-components">mdBook Components</a></h2>
+<p>The mdBook folder is comprised of two main components</p>
+<ol>
+<li>The 'book' folder contains the rendered book in the form of CSS and HTML files. These are the files used by readers as the view the contents.</li>
+<li>The 'src' folder contains the source .md files. These are the files that are created and edited to make up the content of the book. The Summary.md file is the table of contents that includes reference to each of the other .md files that represent separate chapters in the book</li>
+</ol>
+<h2 id="common-markdown"><a class="header" href="#common-markdown">Common Markdown</a></h2>
+<blockquote>
+<p>Reference: <a href="https://commonmark.org/help/">CommonMark.org</a> provides a recap of basic Markdown features</p>
+</blockquote>
+<h2 id="render-the-book"><a class="header" href="#render-the-book">Render the Book</a></h2>
+<p>Book rendering is the process through which the source .md files are converted to HTML. This is done by starting the related service as shown below.  You can leave this service running in Terminal while editing the book, or you can start the service  periodically, when you desire new HTML output files.</p>
+<pre><code>cd /users/yourmacusername/your-book-title
+mdbook serve --open
+</code></pre>
+<p>Use CTRL-C to stop the service at any time.</p>
+<h2 id="github"><a class="header" href="#github">GitHub</a></h2>
+<p>GitHub is a code repository that may be used to host your mdBook files, making them internet accessible. This can be a means to configure a website to link to the book for viewing by visitors of the site.</p>
+<p>GitHub has many other features that may be useful, for example, the Issues feature can be a simple way to record notes of any future edits that you would like to make to the book.</p>
+<h2 id="upload-the-mdbook-files-to-github"><a class="header" href="#upload-the-mdbook-files-to-github">Upload the mdBook Files to GitHub</a></h2>
+<ol>
+<li>Create a Repository named like your-book-title</li>
+<li>Under Code, create a Deploy Branch to represent the production Branch. This will be where you will host the currently accessible version of the book</li>
+<li>Copy your local 'book' folder to a temporary location and rename it 'docs'</li>
+<li>In GitHub open the Deploy Branch and click to Add Files</li>
+<li>Drag your local 'docs' folder to GirHub and Commit the changes</li>
+<li>Configure GitHub pages to host your uploaded files
+<ol>
+<li>From your main Repository page, click Settings</li>
+<li>On the left, under Code and Automation, click Pages</li>
+<li>On the settings on the right, make sure the Build and Deployment Source is set to Deploy from a branch</li>
+<li>Set the Branch to deploy /docs</li>
+</ol>
+</li>
+<li>As needed going forward, to update your hosted book, simply repeat the steps above to upload a new local docs folder so as to overwrite the previous version</li>
+</ol>
+<p>At this point you have configured the automated 'pages build and deployment' workflow that will run behind the scenes to update the hosted pages each time the 'docs' files are updated.</p>
+<h2 id="linking-to-your-hosted-mdbook-from-a-website"><a class="header" href="#linking-to-your-hosted-mdbook-from-a-website">Linking to Your Hosted mdBook from a Website</a></h2>
+<p>To access the mdBook as hosted on GitHub pages, link to your book's introduction file</p>
+<blockquote>
+<p>https://mattonchain.github.io/notes-on-a-chain/introduction.html</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="macos-tips.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="macos-tips.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
