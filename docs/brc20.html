@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ordinals.html"><strong aria-hidden="true">1.</strong> Ordinals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inscribing.html"><strong aria-hidden="true">1.1.</strong> Inscribing</a></li><li class="chapter-item expanded "><a href="padding.html"><strong aria-hidden="true">1.2.</strong> Padding</a></li></ol></li><li class="chapter-item expanded "><a href="sat-hunting.html"><strong aria-hidden="true">2.</strong> Sat Hunting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="finding.html"><strong aria-hidden="true">2.1.</strong> Finding</a></li><li class="chapter-item expanded "><a href="extracting.html"><strong aria-hidden="true">2.2.</strong> Extracting</a></li></ol></li><li class="chapter-item expanded "><a href="brc20.html" class="active"><strong aria-hidden="true">3.</strong> BRC-20</a></li><li class="chapter-item expanded "><a href="inscriptions-other.html"><strong aria-hidden="true">4.</strong> Other Inscriptions (.sats Addresses)</a></li><li class="chapter-item expanded "><a href="wallets.html"><strong aria-hidden="true">5.</strong> Wallets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sparrow.html"><strong aria-hidden="true">5.1.</strong> Sparrow</a></li><li class="chapter-item expanded "><a href="xverse-hiro.html"><strong aria-hidden="true">5.2.</strong> Xverse & Hiro</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bns-btc-addresses.html"><strong aria-hidden="true">5.2.1.</strong> BNS .btc Addresses</a></li></ol></li><li class="chapter-item expanded "><a href="unisat.html"><strong aria-hidden="true">5.3.</strong> UniSat</a></li><li class="chapter-item expanded "><a href="wallets-other.html"><strong aria-hidden="true">5.4.</strong> Other Wallets</a></li></ol></li><li class="chapter-item expanded "><a href="emblem-vault.html"><strong aria-hidden="true">6.</strong> Emblem Vault</a></li><li class="chapter-item expanded "><a href="node-setup.html"><strong aria-hidden="true">7.</strong> Node Setup</a></li><li class="chapter-item expanded "><a href="ord-setup.html"><strong aria-hidden="true">8.</strong> Ord Setup</a></li><li class="chapter-item expanded "><a href="links.html"><strong aria-hidden="true">9.</strong> Links</a></li><li class="chapter-item expanded "><a href="who-to-follow.html"><strong aria-hidden="true">10.</strong> Who to Follow</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">11.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="macos-tips.html"><strong aria-hidden="true">12.</strong> macOS Tips</a></li><li class="chapter-item expanded "><a href="mdbook.html"><strong aria-hidden="true">13.</strong> mdBook</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ordinals.html"><strong aria-hidden="true">1.</strong> Ordinals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inscribing.html"><strong aria-hidden="true">1.1.</strong> Inscribing</a></li><li class="chapter-item expanded "><a href="padding.html"><strong aria-hidden="true">1.2.</strong> Padding</a></li></ol></li><li class="chapter-item expanded "><a href="sat-hunting.html"><strong aria-hidden="true">2.</strong> Sat Hunting</a></li><li class="chapter-item expanded "><a href="brc20.html" class="active"><strong aria-hidden="true">3.</strong> BRC-20</a></li><li class="chapter-item expanded "><a href="domain-names.html"><strong aria-hidden="true">4.</strong> Domain Names</a></li><li class="chapter-item expanded "><a href="wallets.html"><strong aria-hidden="true">5.</strong> Wallets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sparrow.html"><strong aria-hidden="true">5.1.</strong> Sparrow</a></li><li class="chapter-item expanded "><a href="xverse-hiro.html"><strong aria-hidden="true">5.2.</strong> Xverse & Hiro</a></li></ol></li><li class="chapter-item expanded "><a href="emblem-vault.html"><strong aria-hidden="true">6.</strong> Emblem Vault</a></li><li class="chapter-item expanded "><a href="node-setup.html"><strong aria-hidden="true">7.</strong> Node Setup</a></li><li class="chapter-item expanded "><a href="ord-setup.html"><strong aria-hidden="true">8.</strong> Ord Setup</a></li><li class="chapter-item expanded "><a href="links.html"><strong aria-hidden="true">9.</strong> Links</a></li><li class="chapter-item expanded "><a href="who-to-follow.html"><strong aria-hidden="true">10.</strong> Who to Follow</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">11.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="macos-tips.html"><strong aria-hidden="true">12.</strong> macOS Tips</a></li><li class="chapter-item expanded "><a href="mdbook.html"><strong aria-hidden="true">13.</strong> mdBook</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,14 +145,15 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="brc-20"><a class="header" href="#brc-20">BRC-20</a></h1>
+<p>BRC-20 are alt-coins created and traded on the Bitcoin blockchain. Most have zero utility and are traded based on pure speculation that they will go viral and see market price increases as they trend.</p>
 <p>Unlike $BTC, the native currency of Bitcoin, BRC-20 is a protocol that derives the balance of alt-coins from the state of Ordinal inscriptions.</p>
 <p>BRC-20 tokens are transacted on-chain as any Ordinal. The content of each BRC-20 Ordinal is a JSON string in the format specified by the protocol.</p>
 <p>BRC-20 functions include the following:</p>
-<ol>
+<ul>
 <li>Deploy: Create a BRC-20 token while defining parameters such as the 4-character ticker symbol, maximum supply, and the limit that can be minted in a single mint inscription.</li>
 <li>Mint: Mint an amount of a previously deployed BRC-20 token. Mints provide a balance only to the first owner of the Mint ordinal. <strong>You cannot move a balance of BRC-20 by sending a Mint token.</strong></li>
 <li>Transfer: Transfer an amount of BRC-20 token. <strong>Transfers only work once.</strong> They must be inscribed into an address holding a valid balance and then be sent to another address as a means of transferring the balance to the new address. The “used” Transfer Ordinal continues to exist but is invalid and cannot be reused.  A new Transfer token must be minted and sent in order to send a balance amount from the new holding address. <strong>When minting Transfers, consider padding the Ordinal (ex. to 8,500 sats) as you will need to spend fees to send the Transfer Ordinal.</strong></li>
-</ol>
+</ul>
 <p>For illustrative purposes, the scenario below lists the actions taken as John and Jane mint a BRC-20 ticker and John subsequently transfers half his balance to Jane.</p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Action</th><th>John’s Balance</th><th>Jane’s Balance</th></tr></thead><tbody>
 <tr><td>John</td><td>Inscribe Deploy</td><td>0</td><td></td></tr>
@@ -197,11 +198,11 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="extracting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="sat-hunting.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="inscriptions-other.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="domain-names.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -211,11 +212,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="extracting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="sat-hunting.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="inscriptions-other.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="domain-names.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

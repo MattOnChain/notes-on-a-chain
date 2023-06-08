@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction</title>
+        <title>Domain Names</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="introduction.html" class="active">Introduction</a></li><li class="chapter-item expanded "><a href="ordinals.html"><strong aria-hidden="true">1.</strong> Ordinals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inscribing.html"><strong aria-hidden="true">1.1.</strong> Inscribing</a></li><li class="chapter-item expanded "><a href="padding.html"><strong aria-hidden="true">1.2.</strong> Padding</a></li></ol></li><li class="chapter-item expanded "><a href="sat-hunting.html"><strong aria-hidden="true">2.</strong> Sat Hunting</a></li><li class="chapter-item expanded "><a href="brc20.html"><strong aria-hidden="true">3.</strong> BRC-20</a></li><li class="chapter-item expanded "><a href="domain-names.html"><strong aria-hidden="true">4.</strong> Domain Names</a></li><li class="chapter-item expanded "><a href="wallets.html"><strong aria-hidden="true">5.</strong> Wallets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sparrow.html"><strong aria-hidden="true">5.1.</strong> Sparrow</a></li><li class="chapter-item expanded "><a href="xverse-hiro.html"><strong aria-hidden="true">5.2.</strong> Xverse & Hiro</a></li></ol></li><li class="chapter-item expanded "><a href="emblem-vault.html"><strong aria-hidden="true">6.</strong> Emblem Vault</a></li><li class="chapter-item expanded "><a href="node-setup.html"><strong aria-hidden="true">7.</strong> Node Setup</a></li><li class="chapter-item expanded "><a href="ord-setup.html"><strong aria-hidden="true">8.</strong> Ord Setup</a></li><li class="chapter-item expanded "><a href="links.html"><strong aria-hidden="true">9.</strong> Links</a></li><li class="chapter-item expanded "><a href="who-to-follow.html"><strong aria-hidden="true">10.</strong> Who to Follow</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">11.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="macos-tips.html"><strong aria-hidden="true">12.</strong> macOS Tips</a></li><li class="chapter-item expanded "><a href="mdbook.html"><strong aria-hidden="true">13.</strong> mdBook</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ordinals.html"><strong aria-hidden="true">1.</strong> Ordinals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inscribing.html"><strong aria-hidden="true">1.1.</strong> Inscribing</a></li><li class="chapter-item expanded "><a href="padding.html"><strong aria-hidden="true">1.2.</strong> Padding</a></li></ol></li><li class="chapter-item expanded "><a href="sat-hunting.html"><strong aria-hidden="true">2.</strong> Sat Hunting</a></li><li class="chapter-item expanded "><a href="brc20.html"><strong aria-hidden="true">3.</strong> BRC-20</a></li><li class="chapter-item expanded "><a href="domain-names.html" class="active"><strong aria-hidden="true">4.</strong> Domain Names</a></li><li class="chapter-item expanded "><a href="wallets.html"><strong aria-hidden="true">5.</strong> Wallets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sparrow.html"><strong aria-hidden="true">5.1.</strong> Sparrow</a></li><li class="chapter-item expanded "><a href="xverse-hiro.html"><strong aria-hidden="true">5.2.</strong> Xverse & Hiro</a></li></ol></li><li class="chapter-item expanded "><a href="emblem-vault.html"><strong aria-hidden="true">6.</strong> Emblem Vault</a></li><li class="chapter-item expanded "><a href="node-setup.html"><strong aria-hidden="true">7.</strong> Node Setup</a></li><li class="chapter-item expanded "><a href="ord-setup.html"><strong aria-hidden="true">8.</strong> Ord Setup</a></li><li class="chapter-item expanded "><a href="links.html"><strong aria-hidden="true">9.</strong> Links</a></li><li class="chapter-item expanded "><a href="who-to-follow.html"><strong aria-hidden="true">10.</strong> Who to Follow</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">11.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="macos-tips.html"><strong aria-hidden="true">12.</strong> macOS Tips</a></li><li class="chapter-item expanded "><a href="mdbook.html"><strong aria-hidden="true">13.</strong> mdBook</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,30 +144,43 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Welcome to <a href="https://www.notesonachain.com">Notes On a Chain</a>, an Ordinals documentation repository.</p>
-<p>Since its inception in 2009, Bitcoin revolutionized the way we perceive money. With its decentralized nature, bitcoin has established itself as the most relevant and dominant cryptocurrency. It's widespread adoption, global recognition, and substantial market capitalization make it the benchmark against which other cryptocurrencies are measured. Bitcoin's enduring presence and influence serve as a catalyst for innovation.</p>
-<p>Andreas Antonopoulos, a well-respected Bitcoin advocate, while emphasizing the fundamental principles and elegant design of Bitcoin, expressed the beauty of Bitcoin's simplicity with its focus on a single core purpose.</p>
+                        <h1 id="domain-names"><a class="header" href="#domain-names">Domain Names</a></h1>
+<h2 id="sats-name-system--sns"><a class="header" href="#sats-name-system--sns">Sats Name System  (SNS)</a></h2>
+<p>Sats Names (a.k.a. .sats addresses)is a standard for writing names to Bitcoin using ordinals.</p>
+<ul>
+<li>Address can be between 1 and 19 characters long, and use characters a-z, 0-9, -, and _</li>
+<li>Before minting a Sats address, use a site such as <a href="https://unisat.io/search">UniSat</a> to search to make sure the address has not already been minted</li>
+<li>Go to <a href="https://unisat.io/inscribe">UniSat</a>, <a href="https://gamma.io/ordinals">Gamma</a> or any preferred inscription service to mint a text ordinal with a JSON string as shown below</li>
+</ul>
+<pre><code>{
+&quot;p&quot;: &quot;sns&quot;,
+&quot;op&quot;: &quot;reg&quot;,
+&quot;name&quot;: &quot;helloworld.sats&quot;
+}
+</code></pre>
 <blockquote>
-<p>&quot;Bitcoin is beautifully engineered because it is designed to do one thing and one thing only: send money. It doesn't try to be all things to all people. It doesn't compromise on its fundamental principles. It's a robust, elegant solution that empowers individuals to transact in a decentralized and permissionless manner.&quot; - Andreas Antonopoulos</p>
+<p>Reference: <a href="https://docs.sats.id/sats-names/about">About Sats Names</a></p>
 </blockquote>
-<p>Then in January 2023, Casey Rodarmor launched the open-source Ordinals protocol called &quot;Ord&quot; that runs on top of a Bitcoin full node. Ord parses the bitcoin blockchain and indexes its contents in new and exciting ways. With the introduction of his &quot;Ordinal Theory&quot;, Bitcoin was not directly altered and therefore became no less elegant as a result of Ordinals and their design.</p>
-<p>When delving into the world of Ordinals, one quickly realizes that there are numerous tools and methodologies to accomplish various tasks. On one hand, this offers flexibility and creativity, enabling individuals to explore different avenues. On the other hand, it can lead to confusion and inefficiency.</p>
-<p>The purpose of this collection is to address this dilemma directly. While the approaches outlined in this collection are not purported to be the definitive way of accomplishing any specific task, they aim to provide a solid foundation for individuals seeking a reliable method. By narrowing down the choices and presenting a curated selection, we hope to alleviate the confusion and enable readers with tried and tested practices.</p>
-<p>It is important to note that the world of Bitcoin and Ordinals is ever-evolving, and new techniques, technologies, and best practices emerge continuously. Therefore, this collection serves as a snapshot in time, capturing a specific set of approaches that were proven effective at the time of writing.</p>
-<blockquote>
-<p>The technical notes herein were taken while performing actions on a Mac. Many of the details are very specific to macOS. As required, you will need to research how to handle such things on Windows.</p>
-</blockquote>
+<h2 id="bitcoin-name-system-bns"><a class="header" href="#bitcoin-name-system-bns">Bitcoin Name System (BNS)</a></h2>
+<p>You can purchase a .btc address at <a href="https://btc.us/get/thecloud.btc">btc.us</a>.</p>
+<p>Xverse and Hiro are Stacks-enabled wallets that support the ability to purchase BNS names. You will need $STX to make the purchase.</p>
+<p>Each Xverse account can purchase only one .btc address, however you can create additional accounts to purchase additional .btc addresses.</p>
+<h3 id="inscribing-a-zonefile-for-your-btc-address"><a class="header" href="#inscribing-a-zonefile-for-your-btc-address">Inscribing a Zonefile for your .BTC Address</a></h3>
+<p>At <a href="https://www.bns.xyz/">BNS.xyz</a> you can inscribe your .btc name on an Ordinal to establish provenance of the name.</p>
+<p>The process will write a copy of your zonefile as a text Ordinal. A zonefile serves to map the .btc name to a wallet address.</p>
+<h2 id="trustless-domains"><a class="header" href="#trustless-domains">Trustless Domains</a></h2>
+<p><a href="https://trustlesswallet.io/">Trustless Wallet</a> operates on the Trustless Computer chain. It works in cooperation with both the Bitcoin and Etherem chains as a means to provide smart contact functionality on Bitcoin. For identification, Trustless uses your ETH address as signed through MetaMask while assigning a Bitcoin address to associate with your ETH address.</p>
+<p>Trustless Wallet offers Trustless &quot;Names&quot; with an unknown future utility.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="cover.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="brc20.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="ordinals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="wallets.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -177,11 +190,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="cover.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="brc20.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="ordinals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="wallets.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
