@@ -144,8 +144,111 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="bitcoin-node-setup"><a class="header" href="#bitcoin-node-setup">Bitcoin Node Setup</a></h1>
-<p>UNDER CONSTRUCTION</p>
+                        <h1 id="bitcoin-node-setup-mac"><a class="header" href="#bitcoin-node-setup-mac">Bitcoin Node Setup (Mac)</a></h1>
+<blockquote>
+<p>Note: In this Bitcoin Core GUI (a.k.a. Bitcoin QT) setup, the blockchain data is set to be stored on an external drive named ‘Bitcoin’, in a folder named ‘Bitcoin’. With this non-standard configuration, many command line actions require the use of additional arguments to tell the binaries where to find required components. These arguments may not be required if upon installation, you accept the default location for your blockchain data.</p>
+</blockquote>
+<h2 id="install-bitcoin-gui-aka-bitcoin-qt"><a class="header" href="#install-bitcoin-gui-aka-bitcoin-qt">Install Bitcoin GUI (a.k.a. Bitcoin QT)</a></h2>
+<ol>
+<li>Go to <a href="https://bitcoincore.org/en/download/">Bitcoin Core</a> and download the Mac (ARM for M1/M2) .dmg of Bitcoin Core</li>
+<li>Install Bitcoin Core and run it from the Applications menu</li>
+<li>Follow the prompts including configuring data store to use an external drive as desired.</li>
+</ol>
+<blockquote>
+<p>Bitcoin core indexing is intensive with disk i.o. If possible, use an SSD for noticeably better results (faster and fewer corrupt file events). In this example, an external SSD was used.</p>
+</blockquote>
+<ol start="4">
+<li>The first process is to download the full blockchain. Wait as many days as it takes for this to complete. This process can be stopped and restarted as desired.</li>
+<li>Build the full blockchain index
+<ol>
+<li>Preferences &gt; Main: Check to Enable RPC server</li>
+<li>Open Configuration File: Enter ‘txindex=1’ (without quotes)</li>
+<li>Close to save the config file and click OK</li>
+<li>Quit Bitcoin Core and restart it.</li>
+<li>Wait as many days as it takes to complete the index</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>Note: This process places the bitcoin.conf file in the folder where you told Bitcoin Core to store your blockchain data (i.e. =/Volumes/Bitcoin/Bitcoin). To check the status of the index, open the Console and enter getindexinfo. If the result is &quot;True:, the data is fully sync’d.</p>
+</blockquote>
+<h2 id="install-the-bitcoin-core-deamon-aka-bitcoind"><a class="header" href="#install-the-bitcoin-core-deamon-aka-bitcoind">Install the Bitcoin Core Deamon (a.k.a. bitcoind)</a></h2>
+<blockquote>
+<p>The daemon is a version of Bitcoin Core that can runs in terminal mode, giving you additional capabilities.</p>
+</blockquote>
+<ol>
+<li>Install Homebrew
+<ol>
+<li>From Terminal, enter ‘Brew’ to confirm ‘command not found’. This indicates Homebrew is not already installed.</li>
+<li>Go to <a href="https://brew.sh">Homebrew</a> and run the install curl command as shown on the site. Note that after installing, Homebrew shows you 2 additional commands to enter into terminal. <strong>These are critical as they will put Brew in your path variable.</strong></li>
+</ol>
+</li>
+<li>Install Bitcoin daemon from Terminal (Utilities &gt; Terminal)</li>
+</ol>
+<pre><code>brew install bitcoin
+</code></pre>
+<blockquote>
+<p>Note: Bitcoin binaries are placed in hidden path /opt/homebrew/opt/bitcoin/bin/ (use Command-Shift-Dot to see hidden files and folders).</p>
+</blockquote>
+<ol start="3">
+<li>Edit the Config file entry to share your previously acquired blockchain data file. This step is done for the unlikely case you have a reason to run the Bitcoin service instead of the daemon.
+<ol>
+<li>Navigate to Go &gt; Home &gt; Library &gt; Application Support</li>
+<li>On the Go menu hit Option to see the Library folder</li>
+<li>At any time use Command-Shift-Dot to see hidden folders (e.g. Library)</li>
+<li>If a Bitcoin folder does not already exist, create it</li>
+<li>Copy the bitcoin.conf file from the blockchain data created earlier to this new folder</li>
+<li>Edit the file so that before the txindex=1 entry, the first line of the file reads: datadir=your/path (i.e. datadir=/Volumes/Bitcoin/Bitcoin)</li>
+<li>Test deamon with a simple version check command</li>
+</ol>
+</li>
+</ol>
+<pre><code>bitcoind --version
+or
+bitcoin-cli --version
+</code></pre>
+<ol start="4">
+<li>When needed, run bitcoin daemon from Terminal. The following command is to manually start bitcoind while telling it where to find your blockchain data</li>
+</ol>
+<pre><code>bitcoind -datadir=/Volumes/Bitcoin/Bitcoin
+</code></pre>
+<h2 id="other-helpful-commands"><a class="header" href="#other-helpful-commands">Other Helpful Commands</a></h2>
+<ul>
+<li>If instead of on-demand, you want to start bitcoin as a service</li>
+</ul>
+<pre><code>brew services start bitcoin
+</code></pre>
+<ul>
+<li>Stop bitcoin service</li>
+</ul>
+<pre><code>bitcoin-cli stop
+</code></pre>
+<ul>
+<li>Restart the service after an upgrade</li>
+</ul>
+<pre><code>brew services restart bitcoin
+</code></pre>
+<ul>
+<li>Get Blockchain data status where inititialblockdownload=false means the initial download was completed</li>
+</ul>
+<pre><code>bitcoin-cli getblockchaininfo
+</code></pre>
+<ul>
+<li>Help</li>
+</ul>
+<pre><code>bitcoin-cli -help
+</code></pre>
+<ul>
+<li>Get Block Count (Note that <a href="https://ordinals.com/clock">Ordinals.com</a> also shows the latest block when you hover the cursor over the center of the clock.)</li>
+</ul>
+<pre><code>bitcoin-cli getblockcount
+</code></pre>
+<blockquote>
+<p>Important: At this stage you have both the Bitcoin Core GUI and Bitcoin Core daemon installed. These cannot be run simultaneously as they perform the same tasks and share local blockchain data. The GUI is an easy way to just run the core.  The deamon runs the core while also providing command line capabilities that are helpful, especially when troubleshooting.  Just close/stop one before opening/starting the other.</p>
+</blockquote>
+<blockquote>
+<p>Reference: <a href="https://www.youtube.com/watch?v=zXlvkOSVM9M&amp;t=1s">Hell Money Podcast: How to Make an Inscription Part 1</a></p>
+</blockquote>
 
                     </main>
 

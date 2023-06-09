@@ -152,26 +152,26 @@
 <p>Version 1.0</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Welcome to <a href="https://www.notesonachain.com">Notes On a Chain</a>, an Ordinals documentation repository.</p>
-<p>Since its inception in 2009, Bitcoin revolutionized the way we perceive money. With its decentralized nature, bitcoin has established itself as the most relevant and dominant cryptocurrency. It's widespread adoption, global recognition, and substantial market capitalization make it the benchmark against which other cryptocurrencies are measured. Bitcoin's enduring presence and influence serve as a catalyst for innovation.</p>
+<p>Since its inception in 2009, Bitcoin revolutionized the way we perceive money. With its decentralized nature, bitcoin has established itself as the most relevant and dominant cryptocurrency. It's widespread adoption, global recognition, and substantial market capitalization make it the benchmark against which all other cryptocurrencies are measured. Bitcoin's enduring presence and influence serve as a catalyst for innovation.</p>
 <p>Andreas Antonopoulos, a well-respected Bitcoin advocate, while emphasizing the fundamental principles and elegant design of Bitcoin, expressed the beauty of Bitcoin's simplicity with its focus on a single core purpose.</p>
 <blockquote>
 <p>&quot;Bitcoin is beautifully engineered because it is designed to do one thing and one thing only: send money. It doesn't try to be all things to all people. It doesn't compromise on its fundamental principles. It's a robust, elegant solution that empowers individuals to transact in a decentralized and permissionless manner.&quot; - Andreas Antonopoulos</p>
 </blockquote>
-<p>Then in January 2023, Casey Rodarmor launched the open-source Ordinals protocol called &quot;Ord&quot; that runs on top of a Bitcoin full node. Ord parses the bitcoin blockchain and indexes its contents in new and exciting ways. With the introduction of his &quot;Ordinal Theory&quot;, Bitcoin was not directly altered and therefore became no less elegant as a result of Ordinals and their design.</p>
-<p>When delving into the world of Ordinals, one quickly realizes that there are numerous tools and methodologies to accomplish various tasks. On one hand, this offers flexibility and creativity, enabling individuals to explore different avenues. On the other hand, it can lead to confusion and inefficiency.</p>
-<p>The purpose of this collection is to address this dilemma directly. While the approaches outlined in this collection are not purported to be the definitive way of accomplishing any specific task, they aim to provide a solid foundation for individuals seeking a reliable method. By narrowing down the choices and presenting a curated selection, we hope to alleviate the confusion and enable readers with tried and tested practices.</p>
-<p>It is important to note that the world of Bitcoin and Ordinals is ever-evolving, and new techniques, technologies, and best practices emerge continuously. Therefore, this collection serves as a snapshot in time, capturing a specific set of approaches that were proven effective at the time of writing.</p>
+<p>Then in January 2023, Casey Rodarmor launched the open-source Ordinals protocol called &quot;Ord&quot; that runs on top of a Bitcoin full node. Ord parses the bitcoin blockchain and indexes its contents in new and exciting ways. With the introduction of &quot;Ordinal Theory&quot;, Bitcoin was not directly altered and therefore became no less elegant as a result of Ordinals and their design.</p>
+<p>When delving into the world of Ordinals, one quickly realizes that there are numerous tools and methodologies to accomplish various tasks. On the one hand, this offers flexibility and creativity, enabling individuals to explore different avenues. On the other hand, it can lead to confusion and inefficiency.</p>
+<p>The purpose of this document is to address this dilemma directly. While the approaches outlined in this collection are not purported to be the definitive way of accomplishing any specific task, they aim to provide a solid foundation for individuals seeking a reliable method. By narrowing down the choices and presenting a curated selection, we hope to alleviate the confusion and enable readers with tried and tested practices.</p>
+<p>It is important to note that the world of Bitcoin and Ordinals is ever-evolving, and new techniques, technologies, and best practices emerge continuously. Therefore, this collection of notes serves as a snapshot in time, capturing a specific set of approaches that were proven effective at the time of writing.</p>
 <blockquote>
-<p>The technical notes herein were taken while performing actions on a Mac. Many of the details are very specific to macOS. As required, you will need to research how to handle such things on Windows.</p>
+<p>The technical notes herein were taken while performing tasks on a Mac. Many of the details are very specific to macOS. As required, you will need to research how to handle such things on Windows.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ordinals"><a class="header" href="#ordinals">Ordinals</a></h1>
 <p>Ordinals are the result of Ordinal Theory.</p>
 <p>Ordinal Theory is first and foremost a protocol for assigning serial numbers to satoshis.</p>
 <p>A satoshi is the smallest unit of currency on the Bitcoin network. One bitcoin is comprised of 100,000,000 satoshis.</p>
-<p>Individual satoshis can be inscribed with data such as an image or string of text. Like any satoshit, they can then be held in Bitcoin wallets and transferred with a Bitcoin transaction.</p>
+<p>Individual satoshis can be inscribed with data such as an image or string of text. Like any satoshi, they can then be held in Bitcoin wallets and transferred with a Bitcoin transaction.</p>
 <p>These inscribed satoshis - or &quot;inscriptions&quot; - are referred to as Ordinals. </p>
 <blockquote>
-<p>Much in the way a Bitcoin wallet parses the blockchain to reveal your balance and transactions, think of Ordinal Theory as a new lens through which to view the same blockchain. This new lens reveals images and other content found alongside transaction data. That content and each underlying Satoshi is then indexed while applying a serial number to each.</p>
+<p>Much in the way a Bitcoin wallet parses the blockchain to reveal your balance and transactions, think of Ordinal Theory as a new lens through which to view the same blockchain. This new lens reveals images and other content found alongside transaction data. That content and each underlying satoshi is then indexed while applying a serial number to each.</p>
 </blockquote>
 <p>Ordinal Theory created two main elements:</p>
 <ol>
@@ -181,15 +181,15 @@
 <h2 id="how-does-it-work"><a class="header" href="#how-does-it-work">How Does It Work?</a></h2>
 <p>Inscriptions are created when data is written to a satoshi in accordance with the inscription content model. In addition to the content itself, the inscription includes an Ordinal identifier (Ord) and a content type (or MIME type) that allows readers to know how to handle the content.</p>
 <p>This is the same MIME data model used by the web, allowing inscriptions to evolve with the web, in support of any content supported by web browsers - all without requiring changes to the underlying protocol.</p>
-<p>Ordinal Theory did not change how the blockchain works. Instead, two previous Bitcoin upgrades (SegWit and Taproot) combined to make it possible to storage larger data while in a way that it is more affordable (cheaper fees tied to the payload).</p>
-<p>Unlike Ethereum NFTs that have content stored off-chain - typically on IPFS - Ordinals content is stored directly on-chain. The inscription data is posted as part of the &quot;witness&quot; data - the portion of the transaction that stores signatures.</p>
+<p>Ordinal Theory did not change how the blockchain works. Instead, two previous Bitcoin upgrades (SegWit and Taproot) introduced changes that made it possible to store a larger amount of data in a way that is more affordable (cheaper fees tied to the payload).</p>
+<p>Unlike Ethereum NFTs that have content stored off-chain - typically on IPFS - Ordinal content is stored directly on-chain. The inscription data is posted as part of the &quot;witness&quot; data - the portion of the transaction that stores signatures.</p>
 <p>Ordinals are always immutable such that it is impossible to alter an Ordinal after it has been created.</p>
-<p>If you believe the Bitcoin network is permanent, then the content of Ordinals is permanent as well. Ordinals will outlive us all. This is a huge difference of Ethereum NFTs wherein eventually someone will stop paying for persistent IPFS storage and the NFT will cease to reveal an image.</p>
-<h2 id="does-this-hinder-bitcoins-ability-to-function-as-decentralized-money"><a class="header" href="#does-this-hinder-bitcoins-ability-to-function-as-decentralized-money">Does this Hinder Bitcoin's Ability to Function as Decentralized Money?</a></h2>
+<p>If you believe the Bitcoin network is permanent, then the content of Ordinals is permanent as well. Ordinals will outlive us all. This is a significant difference when compared to Ethereum NFTs wherein eventually someone will stop paying for persistent IPFS storage and the NFT will cease to reveal an image.</p>
+<h2 id="do-ordinals-hinder-bitcoins-ability-to-function-as-decentralized-money"><a class="header" href="#do-ordinals-hinder-bitcoins-ability-to-function-as-decentralized-money">Do Ordinals Hinder Bitcoin's Ability to Function as Decentralized Money?</a></h2>
 <p>Bitcoin is and will always be a solution designed to decentralize money.</p>
 <p>Ordinal Theory can help Bitcoin achieve its mission. First, inscriptions incur increased fees for miners. These miner fees help improve the security and resiliency of the network.</p>
 <p>Ordinals will attract new participants that start collecting digital artifacts, but eventually become evangelists for Bitcoin as decentralized money.</p>
-<p>Builders will build. More use cases and more users of Bitcoin will compel wallets and other solutions to improve and create wholly new user experiences. In this way, Ordinals has the potential to spark a new wave of development around the Bitcoin blockchain.</p>
+<p>Builders will build. More use cases and more users of Bitcoin will compel wallet developers and other solutions to improve and create wholly new user experiences. In this way, Ordinals has the potential to spark a new wave of development around the Bitcoin blockchain.</p>
 <p>More people will be compelled to run a Bitcoin full node, increasing the strength of the network.</p>
 <p>Inscriptions will stress test the network, serving to identify opportunities for improvement as Bitcoin continues to evolve.</p>
 <p>Ordinals make Bitcoin exciting to OGs and new participants alike.</p>
@@ -199,15 +199,15 @@
 <p>Using Sparrow, padding UTXOs is useful when you want to add sats to an Ordinal as you may want to do if you will send the Ordinal in a manner that uses its sats to cover the transaction fee.</p>
 <ol>
 <li>If not already in your Sparrow wallet, send the Ordinal there</li>
-<li>In Sparrow, label a new address like &quot;Spendable BTC&quot; and send at least 10,000 sats to this address</li>
-<li>Under the Receive tab, label a third address like &quot;Padded Bitcoin Punk&quot;</li>
+<li>In Sparrow, label an unused address like &quot;Spendable BTC&quot; and send at least 10,000 sats to this address</li>
+<li>Under the Receive tab, label a third address like &quot;Padded Bitcoin Punk #1234&quot;</li>
 <li>From the UTXO tab, click the Ordinal you want pad along with Command+click to also select the UTXO with your Spendable BTC</li>
-<li>Click Send Selected</li>
+<li>With the two UTXOs selected, click Send Selected</li>
 <li>From the Send screen, paste the Pay to address, label the transaction like &quot;Pad Bitcoin Punk #1234&quot;, and under Amount enter the total amount of sats you want to make up the padded Ordinal (typically 10,000 sats)</li>
 <li>Slide the fee range as desired while noticing that as you move the fee, Sparrow changes the order of the inputs as shown on the left side of the transaction workflow diagram</li>
 </ol>
 <blockquote>
-<p>IMPORTANT: Make sure the Ordinal to be padded appears on the top of the left side, leaving the Spendable BTC to be on the bottom. Sparrow will randomly change this order as you change the fee amount. Just keep playing with the fee slider until it represents the speed you want AND the transaction diagram shows the Ordinal as the top item on the left side.</p>
+<p>IMPORTANT: Make sure the Ordinal to be padded appears on the top of the left side, leaving the Spendable BTC to be on the bottom. Sparrow will randomly change this order as you change the fee amount. Just keep playing with the fee slider until it represents the speed you want and the transaction diagram shows the Ordinal as the top item on the left side.</p>
 </blockquote>
 <ol start="8">
 <li>Click Create Transaction to proceed to view the transaction before Signing and Broadcasting</li>
@@ -243,29 +243,29 @@
 <h2 id="part-1-the-hunt"><a class="header" href="#part-1-the-hunt">Part 1: The Hunt</a></h2>
 <ol>
 <li>Move $BTC from an exchange to Sparrow</li>
-<li>Under UTXOs, from the received BTC &gt; Copy Transaction Output </li>
+<li>Under UTXOs, right-click on the Output value of the received BTC and select Copy Transaction Output</li>
 <li>Paste the value into the search at Ordinals.com</li>
 <li>View the many Sat Ranges</li>
 <li>A range with an Uncommon sat will appear in a different color</li>
-<li>Look for shorter range numbers (fewer characters when scanning down the list) and click the shorter ones to find old sats</li>
+<li>Look for shorter range numbers (fewer characters when scanning down the list) and click the shorter ones to find vintage sats</li>
 </ol>
 <blockquote>
-<p>As an alternative to manually reviewing the sat ranges on Ordinals.com, tools like [Sat Hunter Pro/Coming Soon] and <a href="https://sating.io/">Sating.io</a> provide a simple UI to identify interesting sats.</p>
+<p>As an alternative to manually reviewing the sat ranges on Ordinals.com, tools like <a href="https://hunter.raresatsociety.com/">Sat Hunter Pro</a> and <a href="https://sating.io/">Sating.io</a> provide a simple UI to identify interesting sats.</p>
 </blockquote>
 <h2 id="part-2-the-extraction"><a class="header" href="#part-2-the-extraction">Part 2: The Extraction</a></h2>
 <ol>
-<li>Copy and paste the list of ranges from Ordinals.com into a plain text formatted text file</li>
+<li>Copy and paste the list of sat ranges from Ordinals.com into a plain text formatted text file. This serves to strip the HTML formatting before pasting the data into Excel.</li>
 <li>Copy and paste the ranges from the text file into Excel</li>
 </ol>
 <blockquote>
-<p>Note: Excel cannot properly handle the larg values of sat ranges and this result in bad math. Yes: Excel will show the wrong value when subtracting the first and last value of ranges. To resolve this, use formulas to work with only the last 10 digits on each side of the range.</p>
+<p>Important: Excel cannot properly handle the large values of sat ranges and this results in bad math when attempting subtract the start and end range values. To work around this problem, use formulas to work with only the last 10 digits on each side of the range (=right(text, num_chars)).</p>
 </blockquote>
 <ol start="3">
 <li>Create formulas to derive the number of sats in each range</li>
 <li>Add up your results and confirm this matches the Value as shown atop Ordinals.com for this transaction output. This confirms you accurately calculated the number of sats in each range.</li>
 <li>Derive the number of sats before the range you want to extract by adding up all the rows above the range containing the sat you will keep.</li>
 <li>In Sparrow, select the UTXO and click to Send</li>
-<li>You will create 3 parts to this one transaction
+<li>You will create three parts to this one transaction
 <ol>
 <li>Part 1 (to Exchange): The total number of sats calculated when adding all the ranges before the desire sat. Label this like '1. Send back to exchange'.</li>
 <li>Part 2 (to Keeper wallet): 10,000 sats (this includes the rare sats plus padding). Label this like '2. Keep Uncommon sat'.</li>
@@ -274,10 +274,10 @@
 </li>
 </ol>
 <blockquote>
-<p>Caution: After creating the transaction but <strong>before</strong> broadcasting it, make sure the order of transactions outputs (right side of transaction diagram) show as desired. It likely will not, because Sparrow randomizes the order.  If the order is wrong, close the transaction and go back to click Create Transaction again. Do this until the orders is correct. <strong>Only then should you sign and broadcast the transaction.</strong></p>
+<p>Caution: After creating the transaction but before broadcasting it, make sure the order of transactions outputs (right side of transaction diagram) show as desired. Likely it will not be in the desired order because Sparrow randomizes this. If the order is wrong, close the transaction and go back to click Create Transaction again. Do this until the orders is correct. <strong>Only then should you sign and broadcast the transaction.</strong></p>
 </blockquote>
 <blockquote>
-<p>Note: Sat ranges include the first sat in the range and exclude the last sat.  Meaning when viewing a single range on Ordinals.com, the last sat is NOT part of that group/range of sats.</p>
+<p>Note: Sat ranges include the first sat in the range and exclude the last sat.  Meaning when viewing a single range on Ordinals.com, the last sat is not part of that group/range of sats.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="brc-20"><a class="header" href="#brc-20">BRC-20</a></h1>
 <p>BRC-20 are alt-coins created and traded on the Bitcoin blockchain. Most have zero utility and are traded based on pure speculation that they will go viral and see market price increases as they trend.</p>
@@ -299,7 +299,7 @@
 </tbody></table>
 </div>
 <h2 id="marketplaces--wallets"><a class="header" href="#marketplaces--wallets">Marketplaces &amp; Wallets</a></h2>
-<p>Various sites and wallets facilitate the inscribing process so that the above may feel like Buying and Selling when in fact what is occurring is Transfer tokens are being inscribed and sent as a means of moving the balance from one wallet (seller) to another (buyer).</p>
+<p>Various sites and wallets facilitate the inscribing process so that the above may be handled as a function of buying and selling when in fact what is occurring is Transfer tokens are being inscribed and sent as a means of moving the balance from one wallet (seller) to another (buyer).</p>
 <h2 id="returning-a-transferable-balance-to-your-available-balance"><a class="header" href="#returning-a-transferable-balance-to-your-available-balance">Returning a Transferable Balance to Your Available Balance</a></h2>
 <p>If after inscribing a Transfer token (and before sending it) you want to change a Transferable balance back to your Available balance, you must transfer the valid Transfer to yourself.</p>
 <h2 id="checking-the-balance"><a class="header" href="#checking-the-balance">Checking the Balance</a></h2>
@@ -330,9 +330,9 @@
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="domain-names"><a class="header" href="#domain-names">Domain Names</a></h1>
 <h2 id="sats-name-system--sns"><a class="header" href="#sats-name-system--sns">Sats Name System  (SNS)</a></h2>
-<p>Sats Names (a.k.a. .sats addresses)is a standard for writing names to Bitcoin using ordinals.</p>
+<p>Sats Names (a.k.a. .sats addresses) is a standard for writing names to Bitcoin using ordinals.</p>
 <ul>
-<li>Address can be between 1 and 19 characters long, and use characters a-z, 0-9, -, and _</li>
+<li>Addresses can be between 1 and 19 characters long, and use characters a-z, 0-9, -, and _</li>
 <li>Before minting a Sats address, use a site such as <a href="https://unisat.io/search">UniSat</a> to search to make sure the address has not already been minted</li>
 <li>Go to <a href="https://unisat.io/inscribe">UniSat</a>, <a href="https://gamma.io/ordinals">Gamma</a> or any preferred inscription service to mint a text ordinal with a JSON string as shown below</li>
 </ul>
@@ -354,17 +354,17 @@
 <p>The process will write a copy of your zonefile as a text Ordinal. A zonefile serves to map the .btc name to a wallet address.</p>
 <h2 id="trustless-domains"><a class="header" href="#trustless-domains">Trustless Domains</a></h2>
 <p><a href="https://trustlesswallet.io/">Trustless Wallet</a> operates on the Trustless Computer chain. It works in cooperation with both the Bitcoin and Etherem chains as a means to provide smart contact functionality on Bitcoin. For identification, Trustless uses your ETH address as signed through MetaMask while assigning a Bitcoin address to associate with your ETH address.</p>
-<p>Trustless Wallet offers Trustless &quot;Names&quot; with an unknown future utility.</p>
+<p>At Trustless Wallet you can purchase Trustless &quot;Names&quot; with an unknown future utility.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="wallets"><a class="header" href="#wallets">Wallets</a></h1>
-<p>There are many wallet applications from which to choose. Below is a recap of the most popular choices at the moment. For an expanded list, see the <a href="links.html">Links</a> section for a list of the most common wallet options.</p>
+<p>There are many wallet applications from which to choose. Below is a recap of the most popular choices at the moment. For an expanded list, the <a href="links.html">Links</a> section contains a list of the most common wallet options.</p>
 <ul>
-<li><a href="https://www.xverse.app/">Xverse</a>: If you are new to Ordinals, start with Xverse. It is the most widely supported wallet when it comes to web3 integrations with marketplaces and minting sites. It handles BTC in a separate address from that of your Ordinals. Also has special handling for BRC-20.</li>
+<li><a href="https://www.xverse.app/">Xverse</a>: If you are new to Ordinals, start with Xverse. It is the most widely supported wallet when it comes to web3 integrations with marketplaces and minting sites. It handles BTC in a separate address from that of your Ordinals. It also has special handling for BRC-20.</li>
 <li><a href="https://unisat.io/download">UniSat</a>: Best for BRC-20 on account of its integration with the UniSat marketplace for BRC-20. Also handles Ordinals and BTC very well; all within a single address.</li>
-<li><a href="https://sparrowwallet.com/">Sparrow</a>: Best for coin control as is required to extract sats, pad Ordinals and more. Just make sure you know what you're doing when sending Ordinals from Sparrow.</li>
+<li><a href="https://sparrowwallet.com/">Sparrow</a>: Best for coin-control as is required to extract sats, pad Ordinals and more. Just make sure you know what you're doing when sending Ordinals from Sparrow.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sparrow"><a class="header" href="#sparrow">Sparrow</a></h1>
 <blockquote>
-<p>Reference: <a href="https://docs.ordinals.com/guides/collecting/sparrow-wallet.html">Ordinals.com</a> guide to collecting Ordinals in a Sparrow Wallet</p>
+<p>Reference: <a href="https://docs.ordinals.com/guides/collecting/sparrow-wallet.html">Ordinals.com</a> guide details how to setup a Taproot (P2TR) wallet in Sparrow for receiving Ordinals.</p>
 </blockquote>
 <h2 id="understanding-utxos"><a class="header" href="#understanding-utxos">Understanding UTXOs</a></h2>
 <p>Each time you receive sats, a new UTXO (Unspent Transaction Output) is created. Each UTXO can be managed separately. When sending an asset, you will typically select one UTXO.</p>
@@ -392,9 +392,9 @@
 <ol>
 <li>The output identifier matches the ordinal identifier</li>
 <li>The offset is 0 (this indicates the inscription is properly located on the first sat in the UTXO)</li>
-<li>The output value has enough sats to cover the transaction fee. Note that if more sats are required, you will need to Pad the UTXO as explained elsewhere in this document</li>
+<li>The output value has enough sats to cover the transaction fee. Note that if more sats are required, you will need to Pad the UTXO as explained in the <a href="./padding.html">Padding</a> section of this document.</li>
 </ol>
-<h2 id="increasing-the-fee"><a class="header" href="#increasing-the-fee">Increasing the Fee</a></h2>
+<h2 id="increasing-the-fee-to-speed-up-the-transaction"><a class="header" href="#increasing-the-fee-to-speed-up-the-transaction">Increasing the Fee to Speed Up the Transaction</a></h2>
 <ol>
 <li>Under Transactions, locate the Unconfirmed transaction you want to speed up</li>
 <li>Right-click and choose &quot;Replace Fee&quot;</li>
@@ -417,35 +417,43 @@ rpcallowip=192.168.1.20 (IP address of client machine)
 </ol>
 </li>
 <li>Under Data Folder, enter the host machine’s path to where your blockchain data is stored (i.e. /Volume/Bitcoin/Bitcoin)</li>
-<li>Under User/Pass enter the User and Password found in the .cookie file used by Bitcoin Core (found in the Bitcoin QT datadir external HD)
-&gt;Note: The .cookie file is a temporary file created each time Core is started.  Therefore, the password required in Sparrow must be changed any time Bitcoin Core was restarted.</li>
+<li>Under User/Pass enter the User and Password found in the .cookie file used by Bitcoin Core (found in the Bitcoin QT datadir external HD)</li>
+</ol>
+<blockquote>
+<p>Note: The .cookie file is a temporary file created each time Core is started.  Therefore, the password entered in Sparrow must be changed any time Bitcoin Core was restarted.</p>
+</blockquote>
+<ol start="5">
 <li>Test Connection</li>
 </ol>
 <h2 id="sparrow-public-server"><a class="header" href="#sparrow-public-server">Sparrow Public Server</a></h2>
 <p>The default public server upon setup is electrum.bitaroo.net</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xverse--hiro"><a class="header" href="#xverse--hiro">Xverse &amp; Hiro</a></h1>
 <blockquote>
-<p>Note: While the same seed phrase may be used to import a wallet into both Hiro and Xverse, each solution uses a different derivation path and therefore uses different addresses. That is to say that if, for example, you have $BTC in Xverse (which uses Wrapped Segwit) and you import that wallet into Hiro (which uses Native Segwit), Hiro will not provide access to the $BTC because Hiro will not recognize and display the address used in Xverse.</p>
+<p>Note: While the same seed phrase may be used to import a wallet into both Hiro and Xverse, each solution uses a different <a href="./glossary.html">derivation path</a> and therefore uses different addresses. That is to say that if, for example, you have $BTC in Xverse (which uses Wrapped Segwit) and you import that wallet into Hiro (which uses Native Segwit), Hiro will not provide access to the $BTC because Hiro will not recognize and display the address used in Xverse.</p>
 </blockquote>
 <h3 id="speeding-up-transactions-submitted-with-xverse"><a class="header" href="#speeding-up-transactions-submitted-with-xverse">Speeding Up Transactions Submitted with Xverse</a></h3>
 <p>Xverse does not currently support the ability to send a transaction to replace the fee as is required to speed up a transaction stuck in mempool (because the original fee was too low).</p>
 <p>However, the transaction can be sped up outside of Xverse.</p>
 <p>One method is to use the premium option at <a href="https://www.bitcoinjumper.com">Bitcoin Jumper</a> to speed up the BTC transaction. This fee-based service will manually add the transaction to be confirmed by a partner mining node. The fee is calculated to be the cost to include the transaction into one of the next blocks and therefore is above the current miner processing rate.</p>
+<p>Alternately, you can import the wallet into Sparrow and therein, increase the fee rate.</p>
 <ol>
-<li>Copy the seed phrase from Xverse and use it to import the wallet into Sparrow.
+<li>Copy the seed phrase from Xverse and use it to import the wallet into Sparrow
 <ol>
 <li>For Xverse, select a Nested Segwit wallet (3...)</li>
 <li>For Hiro, select a Native Segwit (bc1q...)</li>
 </ol>
 </li>
-<li>In Sparrow, under Transactions, locate the Unconfirmed transaction you want to speed up.</li>
-<li>Right-click and choose Increase Effective Fee Rate.</li>
+<li>In Sparrow, under Transactions, locate the Unconfirmed transaction you want to speed up</li>
+<li>Right-click and choose Increase Effective Fee Rate</li>
 <li>Make sure the &quot;Pay to&quot; address is accurate. This should be the BTC receive address shown in Xverse. This is important as Sparrow may change this.</li>
-<li>Set the new fee.</li>
-<li>Create, sign, and broadcast the transaction.</li>
+<li>Set the new fee. To derive the fee amount, multiply the current regular fee rate (sat/vB shown on <a href="https://mempool.space">mempool.space</a>) by 2.5 as this fee needs to be enough to both process this transaction and speed up the original transaction.</li>
+<li>Create, sign, and broadcast the transaction</li>
 </ol>
+<blockquote>
+<p>Reference: <a href="https://www.youtube.com/watch?v=5wTBkYCn0fk">How to Speed Up Bitcoin Ordinal Transactions</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="emblem-vault"><a class="header" href="#emblem-vault">Emblem Vault</a></h1>
-<p><a href="https://emblem.finance/">Emblem Vault</a> facilitates the storage and exchange of Ordinals on the ETH mainnet. Ordinals can be wrapped inside an Emblem Vault that is traded on OpenSea like any ETH NFT. At any time, the owner of the Emblem Vault can open the vault and move the Ordinal to your Ordinal wallet.</p>
+<p><a href="https://emblem.finance/">Emblem Vault</a> facilitates the storage and exchange of Ordinals on the ETH mainnet. Ordinals can be wrapped inside an Emblem Vault that is traded on OpenSea like any ETH NFT. At any time, the owner of the Emblem Vault can open the vault and move the Ordinal to their Ordinal wallet.</p>
 <h2 id="unlocking-an-emblem-vault"><a class="header" href="#unlocking-an-emblem-vault">Unlocking an Emblem Vault</a></h2>
 <ol>
 <li>Connect to emblem.finance with the ETH wallet that contains your vaulted Ordinals</li>
@@ -458,7 +466,7 @@ rpcallowip=192.168.1.20 (IP address of client machine)
 <li>Record and secure this seed phrase for as long as you need access to the wallet containing this Ordinal.</li>
 </ol>
 <blockquote>
-<p>Note: The Keys can be retrieved again in the future by going to your Unlocked vaults. You will only need to sign in MetaMask to retrieve the keys. It is not a transaction (no fee).</p>
+<p>Note: The Keys can be retrieved again in the future by going to your Unlocked vaults. You will only need to sign in MetaMask to retrieve the keys. This is not a transaction and therefore no gas is required.</p>
 </blockquote>
 <h2 id="importing-the-wallet-into-sparrow"><a class="header" href="#importing-the-wallet-into-sparrow">Importing the Wallet into Sparrow</a></h2>
 <ol>
@@ -476,10 +484,211 @@ rpcallowip=192.168.1.20 (IP address of client machine)
 <blockquote>
 <p>Reference: <a href="https://emblem-vault.medium.com/how-to-unlock-your-ordinals-in-an-emblem-vault-fcdba4210b60">How to Unlock Your Ordinals in an Emblem Vault</a></p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="bitcoin-node-setup"><a class="header" href="#bitcoin-node-setup">Bitcoin Node Setup</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bitcoin-node-setup-mac"><a class="header" href="#bitcoin-node-setup-mac">Bitcoin Node Setup (Mac)</a></h1>
+<blockquote>
+<p>Note: In this Bitcoin Core GUI (a.k.a. Bitcoin QT) setup, the blockchain data is set to be stored on an external drive named ‘Bitcoin’, in a folder named ‘Bitcoin’. With this non-standard configuration, many command line actions require the use of additional arguments to tell the binaries where to find required components. These arguments may not be required if upon installation, you accept the default location for your blockchain data.</p>
+</blockquote>
+<h2 id="install-bitcoin-gui-aka-bitcoin-qt"><a class="header" href="#install-bitcoin-gui-aka-bitcoin-qt">Install Bitcoin GUI (a.k.a. Bitcoin QT)</a></h2>
+<ol>
+<li>Go to <a href="https://bitcoincore.org/en/download/">Bitcoin Core</a> and download the Mac (ARM for M1/M2) .dmg of Bitcoin Core</li>
+<li>Install Bitcoin Core and run it from the Applications menu</li>
+<li>Follow the prompts including configuring data store to use an external drive as desired.</li>
+</ol>
+<blockquote>
+<p>Bitcoin core indexing is intensive with disk i.o. If possible, use an SSD for noticeably better results (faster and fewer corrupt file events). In this example, an external SSD was used.</p>
+</blockquote>
+<ol start="4">
+<li>The first process is to download the full blockchain. Wait as many days as it takes for this to complete. This process can be stopped and restarted as desired.</li>
+<li>Build the full blockchain index
+<ol>
+<li>Preferences &gt; Main: Check to Enable RPC server</li>
+<li>Open Configuration File: Enter ‘txindex=1’ (without quotes)</li>
+<li>Close to save the config file and click OK</li>
+<li>Quit Bitcoin Core and restart it.</li>
+<li>Wait as many days as it takes to complete the index</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>Note: This process places the bitcoin.conf file in the folder where you told Bitcoin Core to store your blockchain data (i.e. =/Volumes/Bitcoin/Bitcoin). To check the status of the index, open the Console and enter getindexinfo. If the result is &quot;True:, the data is fully sync’d.</p>
+</blockquote>
+<h2 id="install-the-bitcoin-core-deamon-aka-bitcoind"><a class="header" href="#install-the-bitcoin-core-deamon-aka-bitcoind">Install the Bitcoin Core Deamon (a.k.a. bitcoind)</a></h2>
+<blockquote>
+<p>The daemon is a version of Bitcoin Core that can runs in terminal mode, giving you additional capabilities.</p>
+</blockquote>
+<ol>
+<li>Install Homebrew
+<ol>
+<li>From Terminal, enter ‘Brew’ to confirm ‘command not found’. This indicates Homebrew is not already installed.</li>
+<li>Go to <a href="https://brew.sh">Homebrew</a> and run the install curl command as shown on the site. Note that after installing, Homebrew shows you 2 additional commands to enter into terminal. <strong>These are critical as they will put Brew in your path variable.</strong></li>
+</ol>
+</li>
+<li>Install Bitcoin daemon from Terminal (Utilities &gt; Terminal)</li>
+</ol>
+<pre><code>brew install bitcoin
+</code></pre>
+<blockquote>
+<p>Note: Bitcoin binaries are placed in hidden path /opt/homebrew/opt/bitcoin/bin/ (use Command-Shift-Dot to see hidden files and folders).</p>
+</blockquote>
+<ol start="3">
+<li>Edit the Config file entry to share your previously acquired blockchain data file. This step is done for the unlikely case you have a reason to run the Bitcoin service instead of the daemon.
+<ol>
+<li>Navigate to Go &gt; Home &gt; Library &gt; Application Support</li>
+<li>On the Go menu hit Option to see the Library folder</li>
+<li>At any time use Command-Shift-Dot to see hidden folders (e.g. Library)</li>
+<li>If a Bitcoin folder does not already exist, create it</li>
+<li>Copy the bitcoin.conf file from the blockchain data created earlier to this new folder</li>
+<li>Edit the file so that before the txindex=1 entry, the first line of the file reads: datadir=your/path (i.e. datadir=/Volumes/Bitcoin/Bitcoin)</li>
+<li>Test deamon with a simple version check command</li>
+</ol>
+</li>
+</ol>
+<pre><code>bitcoind --version
+or
+bitcoin-cli --version
+</code></pre>
+<ol start="4">
+<li>When needed, run bitcoin daemon from Terminal. The following command is to manually start bitcoind while telling it where to find your blockchain data</li>
+</ol>
+<pre><code>bitcoind -datadir=/Volumes/Bitcoin/Bitcoin
+</code></pre>
+<h2 id="other-helpful-commands"><a class="header" href="#other-helpful-commands">Other Helpful Commands</a></h2>
+<ul>
+<li>If instead of on-demand, you want to start bitcoin as a service</li>
+</ul>
+<pre><code>brew services start bitcoin
+</code></pre>
+<ul>
+<li>Stop bitcoin service</li>
+</ul>
+<pre><code>bitcoin-cli stop
+</code></pre>
+<ul>
+<li>Restart the service after an upgrade</li>
+</ul>
+<pre><code>brew services restart bitcoin
+</code></pre>
+<ul>
+<li>Get Blockchain data status where inititialblockdownload=false means the initial download was completed</li>
+</ul>
+<pre><code>bitcoin-cli getblockchaininfo
+</code></pre>
+<ul>
+<li>Help</li>
+</ul>
+<pre><code>bitcoin-cli -help
+</code></pre>
+<ul>
+<li>Get Block Count (Note that <a href="https://ordinals.com/clock">Ordinals.com</a> also shows the latest block when you hover the cursor over the center of the clock.)</li>
+</ul>
+<pre><code>bitcoin-cli getblockcount
+</code></pre>
+<blockquote>
+<p>Important: At this stage you have both the Bitcoin Core GUI and Bitcoin Core daemon installed. These cannot be run simultaneously as they perform the same tasks and share local blockchain data. The GUI is an easy way to just run the core.  The deamon runs the core while also providing command line capabilities that are helpful, especially when troubleshooting.  Just close/stop one before opening/starting the other.</p>
+</blockquote>
+<blockquote>
+<p>Reference: <a href="https://www.youtube.com/watch?v=zXlvkOSVM9M&amp;t=1s">Hell Money Podcast: How to Make an Inscription Part 1</a></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ord-setup-mac"><a class="header" href="#ord-setup-mac">Ord Setup (Mac)</a></h1>
 <p>UNDER CONSTRUCTION</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ord-setup"><a class="header" href="#ord-setup">Ord Setup</a></h1>
-<p>UNDER CONSTRUCTION</p>
+<h1 id="install-ord"><a class="header" href="#install-ord">Install Ord</a></h1>
+<blockquote>
+<p>Note: Cargo presents a simple method for installing Ord.  While we did not try this, instead of using Rust/Cargo you may be able to install the latest pre-built binary from Terminal with the following command.</p>
+</blockquote>
+<pre><code>curl --proto '=https' --tlsv1.2 -fsLS https://ordinals.com/install.sh | bash -s
+</code></pre>
+<p>The method chosen below uses Cargo to install Ord.</p>
+<h2 id="install-cargo-with-rustup"><a class="header" href="#install-cargo-with-rustup">Install Cargo with RustUp</a></h2>
+<p>Ord is written in Rust. RustUp installs the required Rust language and Cargo package manager. Commands below are to be used in Terminal.</p>
+<ol>
+<li>Go to https://rustup.rs and copy the command and paste &amp; run it in Terminal</li>
+<li>Where you are presented an option and one is shown with “(default)”, just press enter at the prompt to use that default</li>
+<li>Add Cargo to the path
+<ol>
+<li>First if the following command returns &quot;cargo not found&quot;, that confirms Cargo is not already in the shell.</li>
+</ol>
+</li>
+</ol>
+<pre><code>which cargo
+</code></pre>
+<pre><code>source &quot;$HOME/.cargo/env&quot;
+</code></pre>
+<ol start="4">
+<li>Try again to confirm it now finds Cargo</li>
+</ol>
+<pre><code>which cargo
+</code></pre>
+<ol start="5">
+<li>Close Terminal and reopen it</li>
+</ol>
+<p>IGNORE THIS MESS... WORKING TO CLEAN IT UP</p>
+<h2 id="install-ord-1"><a class="header" href="#install-ord-1">Install Ord</a></h2>
+<p>o	Start your Bitcoin node (GUI is fine)
+o	Terminal: cargo install ord
+o	Once Ord is installed, you should be able to do <code>ord --version</code> in Terminal to confirm it’s found in the path and otherwise working as expected (or try ‘which ord’ to show where it is located)
+o	Note for reference: The ord binary is stored in /Users/mattlhx/.cargo/bin
+•	Build the Ord Index
+o	In the bitcoin.conf file add server=1, save, close and restart Bitcoin Core
+o	The default location for the Ord index is ‘/Users/mattlhx/Library/Application Support/ord’ but in this setup it will be created on an external drive
+	On the external drive, create a folder called Ord
+	In the new folder, add a plain text empty file called ‘index.redb’
+	Or download an index at https://45.128.27.75/ (https://discord.com/channels/987504378242007100/1083363982963908640) and place this as your starting index file
+o	To start building the index in Terminal: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie index
+o	Wait as long as it takes for the index build to complete
+	Note: If you did not move the index from its standard location, you do not need the --index argument
+	CTRL-C at any point to stop the process (it can be restarted later)</p>
+<p>Start the Ord Server</p>
+<p>•	Before starting Ord Server, create a backup of the ord index in case running the server corrupts your index file
+o	Note: Ord indexes while running Server.  So the index function is only used as a means to index when not running server.
+•	Start Ord Server: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie server
+•	In the browser go to http://localhost to access your local host of Ordinals.com content
+•	Congratulations. Bitcoin Core + Ord are fully installed and functioning.</p>
+<p>Create Aliases for Use in Terminal</p>
+<p>With your Bitcoin Core cookie file and your Ord index files in non-standard locations (external HD), you need to use the --cookie-file and --index arguments with every Ord command you run (e.g. updating the index or starting the server). To make this easier, you can create alias commands for use in Terminal.  Note: The below uses zsh. Similar steps exist to do the same with bash.)</p>
+<p>•	Open your zshrc file in Terminal: nano ~/.zshrc
+•	In the .zshrc file, create an alias by adding a line with the following format:
+•	alias alias_name='command_to_execute'
+o	Replace alias_name with the name you want to give to your alias, and command_to_execute with the command you want to execute when you use your alias.
+	alias ordindex='/Users/mattlhx/.cargo/bin/ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie index'
+	alias ordserver='/Users/mattlhx/.cargo/bin/ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie server'
+	alias bitcoindm='/opt/homebrew/Cellar/bitcoin/24.0.1/bin/bitcoind -datadir=/Bitcoin/Bitcoin'
+	Save the changes to the .zshrc file by pressing Ctrl+O and then Enter
+o	Exit the nano editor by pressing Ctrl+X
+•	To make the changes take effect, you can either restart your Terminal application, or type source ~/.zshrc to reload the .zshrc file and make your new alias available for use
+o	Now, whenever you type your alias in the Terminal, it will execute the command you specified in the .zshrc file.</p>
+<blockquote>
+<p>Reference: <a href="https://www.youtube.com/watch?v=zXlvkOSVM9M&amp;t=1s">Hell Money Podcast: How to Make an Inscription Part 1</a></p>
+</blockquote>
+<h2 id="create-an-ord-wallet--inscribe"><a class="header" href="#create-an-ord-wallet--inscribe">Create an Ord Wallet &amp; Inscribe</a></h2>
+<blockquote>
+<p>Reference: <a href="https://www.youtube.com/watch?v=LXrUu8WOrHo">Hell Money Podcast: How to Make an Inscription Part 2</a></p>
+</blockquote>
+<p>•	Create the wallet
+o	Kill the server with CTRL-C
+o	To create the wallet: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet create | pbcopy (Note: Add ‘ | pbcopy’ to the end of the command if you want the resulting seed phrase to automatically be copied to the clipboard 
+o	Temporarily paste the seed phrase as desired (Careful… you know the deal with seed phrases)
+•	Create an inscription
+o	To get a fresh address: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet receive
+o	Send BTC to this address (to cover inscription fees)
+	Ord will play a sound when the transaction is confirmed
+	Wait for QT to show the updated available balance
+	Or go to mempool.space and paste the address to see the status of the transaction
+	To confirm with Ord: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet balance
+o	ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/mattlhx/Desktop/OrdinalsTest.txt --fee-rate 20 
+	This test is to create a text-based Ordinal with the contents of filename.txt as the body of the Ordinal
+	Wait for the commit and reveal transactions to complete
+•	Note your inscription ID is shown in the output as well. You can paste that into Ordinals.com or your Ord page to see the inscription
+	The inscription is sent to a new address in the wallet
+	To do a dry run (perhaps to see the total cost before actually broadcasting the transaction): ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/mattlhx/Desktop/OrdinalsTest.txt --destination bc1pqlgmfc3v84ksw0e2603tcswqutllzxm99xl4luavvsdxdudtcn0svkqe78 --fee-rate 20 --dry-run
+•	Another example: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/mattlhx/Desktop/Fool\ 151\ Pop\ Artist.webp --destination bc1pkuqhjz9298gwwfr7yewg47a3gr5hgqmu247h2vh6m9jkp269w68svlwwx7 --fee-rate 15 --dry-run
+o	To see your inscription: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscriptions
+•	Transfer the new Ordinal to a keeper wallet
+o	For the safety afforded with its coin control features, this is most easily done from Sparrow where you have imported this Ord wallet using the seed phrase</p>
+<p>Other Commands</p>
+<p>ord --help
+ord wallet -help
+ord ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet balance</p>
+<p>bitcoin-cli -getinfo -help</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="links"><a class="header" href="#links">Links</a></h1>
 <blockquote>
 <p>Caution: Do your own research and use these links at your own risk.</p>
@@ -516,16 +725,17 @@ rpcallowip=192.168.1.20 (IP address of client machine)
 <h2 id="ordinal-explorers"><a class="header" href="#ordinal-explorers">Ordinal Explorers</a></h2>
 <p><a href="https://ordinals.com/">Ordinals</a> is the official site from the Ord team. When you run an Ord server, you are running a local copy of this exact same website.</p>
 <p><a href="https://ordinals-explorer.generative.xyz/">Ordinals/Generative</a> is a backup version of the Ordinals site which can be useful when Ordinals.com is having performance issues.</p>
-<p><a href="https://bestinslot.xyz">Best in Slot</a> also includes BRC-20 market cap and volume data.</p>
-<p><a href="https://cursedordinals.com/">Cursed Ordinals</a> is a branch of Ordinals.com designed to explore Cursed Inscriptions.</p>
+<p><a href="https://bestinslot.xyz">Best in Slot</a> shows BRC-20 market cap and volume data.</p>
+<p><a href="https://cursedordinals.com/">Cursed Ordinals</a> is a branch of Ordinals.com designed to explore <a href="./glossary.html">Cursed Inscriptions</a>.</p>
 <p><a href="https://www.ordinalhub.com/">OrdinalHub</a> lets you discover, track and analyze ordinals.</p>
 <p><a href="https://ordinals.hiro.so/explore">Hiro: Ordinals</a> includes an option to search by rarity (ex. Uncommon).</p>
 <p><a href="https://ordkit.xyz">OrdKit</a></p>
 <p><a href="https://www.ordfind.com">OrdFind</a></p>
-<p><a href="https://ord95.com/">Ord95</a> allows you to search Ordinals with either a OrdinalID or inscription number.</p>
+<p><a href="https://ord95.com/">Ord95</a> allows you to search Ordinals with either a Ordinal ID or inscription number.</p>
 <p><a href="https://ordiscan.com">OrdiScan</a></p>
 <p><a href="https://ordinal.art/inscriptions/">Ordinal.art</a> includes a view of the first inscriptions ever created.</p>
 <h2 id="sat-explorers"><a class="header" href="#sat-explorers">Sat Explorers</a></h2>
+<p><a href="https://hunter.raresatsociety.com/">Sat Hunter Pro</a> from Rare Satoshi Society</p>
 <p><a href="https://sating.io/">Sating.io</a> scans a wallet address for rare and interesting sats.</p>
 <p><a href="https://www.ordinalhub.com/sat-scanner">OrdinalHub</a> has a SatScanner that allows you to input a wallet address to scan for unique sats.</p>
 <h2 id="blockchain-explorers"><a class="header" href="#blockchain-explorers">Blockchain Explorers</a></h2>
@@ -540,18 +750,18 @@ rpcallowip=192.168.1.20 (IP address of client machine)
 <p><a href="https://bestinslot.xyz">Best in Slot</a> enables you to search on the inscription number of a .sats address. If the results include a blue check part, the domain is valid and verified as the first inscription for that name.</p>
 <p><a href="https://btc.us/">btc.us</a> enables you to use $STX (Stacks) to claim a .btc domain like yourname.btc. These domains can be associated with an individual wallet address in Xverse or Hiro wallets.</p>
 <p><a href="https://www.bns.xyz">BNS.xyz</a> helps you establish the provenance of your BNS .btc domain name by inscribing it onto an Ordinal. </p>
-<p><a href="https://btcdomains.io/">BTC Domains</a> is attempting to improve upon the Stacks equivalent by offering .btc domain names that are inscribed as formatted JSON text directly on the Bitcoin mainnet, with each domain being a unique inscription/ordinal.</p>
+<p><a href="https://btcdomains.io/">BTC Domains</a> is attempting to improve upon the Stacks equivalent by offering .btc domain names that are inscribed as formatted JSON text directly on the Bitcoin mainnet, with each domain being a unique inscription.</p>
 <h2 id="other"><a class="header" href="#other">Other</a></h2>
-<p><a href="https://docs.ordinals.com">Ordinal Theory Handbook</a> is the original guide to ordinal theory as introduced by Casey Rodarmor.</p>
-<p><a href="https://ordinals.com/sat/">Ordinals.com</a> lets you search for sat name by placing the name at the end of the URL like: https://ordinals.com/sat/wenlambo. The same can be done with https://ordinals.com/block/78 to search for a specific block number.</p>
+<p><a href="https://docs.ordinals.com">Ordinal Theory Handbook</a> is the original guide to Ordinal Theory as introduced by Casey Rodarmor.</p>
+<p><a href="https://ordinals.com/sat/">Ordinals.com</a> lets you search for a sat name by placing the name at the end of the URL like: https://ordinals.com/sat/wenlambo. The same can be done with https://ordinals.com/block/78 to search for a specific block number.</p>
 <p><a href="https://unisat.io/brc20">UniSat</a> can report the balance of BRC-20 in a provided address. </p>
 <p><a href="https://coincodex.com/convert/satoshi-sats/bitcoin/">Satoshi to Bitcoin Converter</a> </p>
-<p><a href="https://ordinalsbot.com/launchpad">OrdinalsBot</a> launchpad to mint an ordinals collection.</p>
+<p><a href="https://ordinalsbot.com/launchpad">OrdinalsBot</a> has a launchpad to mint an ordinals collection.</p>
 <p><a href="https://emblem.finance/">Emblem Vault</a> facilitates the storage and exchange of Ordinals on the ETH mainnet. Ordinals can be wrapped inside an Emblem Vault that is traded on OpenSea like any ETH NFT. At any time, the owner of the Emblem Vault can open the vault and move the Ordinal to your Ordinal wallet.</p>
 <p><a href="https://ord.tools">Bitcoin Punks Emblem Vault Opensea Verifier</a> can be used to make sure the inscription address matches the Emblem as a means to verify the validity before purchasing the ETH NFT.</p>
 <p><a href="https://github.com/ordinals/ord">Ordinals/ord on Github</a> is the official code repository for the Ordinals project.</p>
 <p><a href="https://ordapi.xyz">OrdAPI</a> cointains a collection of API calls facilitated by its service.</p>
-<p><a href="https://ordinals-metadata-composer.vercel.app">Ordinals Metadata Composer</a> helps you create JSON files to index your ordinals collection as used by the marketplaces to tie a collection together under a collection name.</p>
+<p><a href="https://ordinals-metadata-composer.vercel.app">Ordinals Metadata Composer</a> helps you create JSON files to index your Ordinals collection as used by a marketplaces to tie a collection together under a collection name.</p>
 <h2 id="off-topic"><a class="header" href="#off-topic">Off Topic</a></h2>
 <p><a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a> was used to create this document. It is a command line tool to create books with Markdown.</p>
 <p><a href="https://code.visualstudio.com/">Visual Studio Code</a> (with the Markdown All in One and Code Spell Checker extensions) is the code editor used to create the contents of this document. </p>
@@ -659,8 +869,8 @@ export PATH=$PATH:~/mdBook
 <h2 id="mdbook-components"><a class="header" href="#mdbook-components">mdBook Components</a></h2>
 <p>The mdBook folder is comprised of two main components</p>
 <ul>
-<li>The 'book' folder contains the rendered book in the form of CSS and HTML files. These are the files used by readers as the view the contents.</li>
-<li>The 'src' folder contains the source .md files. These are the files that are created and edited to make up the content of the book. The Summary.md file is the table of contents that includes reference to each of the other .md files that represent separate chapters in the book</li>
+<li>The 'book' folder contains the rendered book in the form of CSS and HTML files. These are the files used by readers as they view the contents.</li>
+<li>The 'src' folder contains the source .md files. These are the files that are created and edited to makeup the content of the book. The Summary.md file is the table of contents that includes reference to the other .md files, each representing a separate chapter in the book.</li>
 </ul>
 <h2 id="common-markdown"><a class="header" href="#common-markdown">Common Markdown</a></h2>
 <blockquote>
@@ -673,7 +883,7 @@ mdbook serve --open
 </code></pre>
 <p>Use CTRL-C to stop the service at any time.</p>
 <h2 id="github"><a class="header" href="#github">GitHub</a></h2>
-<p>GitHub is a code repository that may be used to host your mdBook files, making them internet accessible. This can be a means to configure a website to link to the book for viewing by visitors of the site.</p>
+<p>GitHub is a code repository that may be used to host your mdBook files, making them internet accessible. This allows you to configure a website to link to the book for viewing by visitors of the site.</p>
 <p>GitHub has many other features that may be useful, for example, the Issues feature can be a simple way to record notes of any future edits that you would like to make to the book.</p>
 <h3 id="upload-the-mdbook-files-to-github"><a class="header" href="#upload-the-mdbook-files-to-github">Upload the mdBook Files to GitHub</a></h3>
 <ol>
@@ -690,7 +900,7 @@ mdbook serve --open
 <li>Set the Branch to deploy /docs</li>
 </ol>
 </li>
-<li>As needed going forward, to update your hosted book, simply repeat the steps above to upload a new local docs folder so as to overwrite the previous version</li>
+<li>As needed going forward, to update your hosted book, simply repeat the steps above to upload a new local 'docs' folder so as to overwrite the previous version</li>
 </ol>
 <p>At this point you have configured the automated 'pages build and deployment' workflow that will run behind the scenes to update the hosted pages each time the 'docs' files are updated.</p>
 <h3 id="linking-to-your-hosted-mdbook-from-a-website"><a class="header" href="#linking-to-your-hosted-mdbook-from-a-website">Linking to Your Hosted mdBook from a Website</a></h3>

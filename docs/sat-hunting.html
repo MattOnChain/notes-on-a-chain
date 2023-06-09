@@ -168,29 +168,29 @@
 <h2 id="part-1-the-hunt"><a class="header" href="#part-1-the-hunt">Part 1: The Hunt</a></h2>
 <ol>
 <li>Move $BTC from an exchange to Sparrow</li>
-<li>Under UTXOs, from the received BTC &gt; Copy Transaction Output </li>
+<li>Under UTXOs, right-click on the Output value of the received BTC and select Copy Transaction Output</li>
 <li>Paste the value into the search at Ordinals.com</li>
 <li>View the many Sat Ranges</li>
 <li>A range with an Uncommon sat will appear in a different color</li>
-<li>Look for shorter range numbers (fewer characters when scanning down the list) and click the shorter ones to find old sats</li>
+<li>Look for shorter range numbers (fewer characters when scanning down the list) and click the shorter ones to find vintage sats</li>
 </ol>
 <blockquote>
-<p>As an alternative to manually reviewing the sat ranges on Ordinals.com, tools like [Sat Hunter Pro/Coming Soon] and <a href="https://sating.io/">Sating.io</a> provide a simple UI to identify interesting sats.</p>
+<p>As an alternative to manually reviewing the sat ranges on Ordinals.com, tools like <a href="https://hunter.raresatsociety.com/">Sat Hunter Pro</a> and <a href="https://sating.io/">Sating.io</a> provide a simple UI to identify interesting sats.</p>
 </blockquote>
 <h2 id="part-2-the-extraction"><a class="header" href="#part-2-the-extraction">Part 2: The Extraction</a></h2>
 <ol>
-<li>Copy and paste the list of ranges from Ordinals.com into a plain text formatted text file</li>
+<li>Copy and paste the list of sat ranges from Ordinals.com into a plain text formatted text file. This serves to strip the HTML formatting before pasting the data into Excel.</li>
 <li>Copy and paste the ranges from the text file into Excel</li>
 </ol>
 <blockquote>
-<p>Note: Excel cannot properly handle the larg values of sat ranges and this result in bad math. Yes: Excel will show the wrong value when subtracting the first and last value of ranges. To resolve this, use formulas to work with only the last 10 digits on each side of the range.</p>
+<p>Important: Excel cannot properly handle the large values of sat ranges and this results in bad math when attempting subtract the start and end range values. To work around this problem, use formulas to work with only the last 10 digits on each side of the range (=right(text, num_chars)).</p>
 </blockquote>
 <ol start="3">
 <li>Create formulas to derive the number of sats in each range</li>
 <li>Add up your results and confirm this matches the Value as shown atop Ordinals.com for this transaction output. This confirms you accurately calculated the number of sats in each range.</li>
 <li>Derive the number of sats before the range you want to extract by adding up all the rows above the range containing the sat you will keep.</li>
 <li>In Sparrow, select the UTXO and click to Send</li>
-<li>You will create 3 parts to this one transaction
+<li>You will create three parts to this one transaction
 <ol>
 <li>Part 1 (to Exchange): The total number of sats calculated when adding all the ranges before the desire sat. Label this like '1. Send back to exchange'.</li>
 <li>Part 2 (to Keeper wallet): 10,000 sats (this includes the rare sats plus padding). Label this like '2. Keep Uncommon sat'.</li>
@@ -199,10 +199,10 @@
 </li>
 </ol>
 <blockquote>
-<p>Caution: After creating the transaction but <strong>before</strong> broadcasting it, make sure the order of transactions outputs (right side of transaction diagram) show as desired. It likely will not, because Sparrow randomizes the order.  If the order is wrong, close the transaction and go back to click Create Transaction again. Do this until the orders is correct. <strong>Only then should you sign and broadcast the transaction.</strong></p>
+<p>Caution: After creating the transaction but before broadcasting it, make sure the order of transactions outputs (right side of transaction diagram) show as desired. Likely it will not be in the desired order because Sparrow randomizes this. If the order is wrong, close the transaction and go back to click Create Transaction again. Do this until the orders is correct. <strong>Only then should you sign and broadcast the transaction.</strong></p>
 </blockquote>
 <blockquote>
-<p>Note: Sat ranges include the first sat in the range and exclude the last sat.  Meaning when viewing a single range on Ordinals.com, the last sat is NOT part of that group/range of sats.</p>
+<p>Note: Sat ranges include the first sat in the range and exclude the last sat.  Meaning when viewing a single range on Ordinals.com, the last sat is not part of that group/range of sats.</p>
 </blockquote>
 
                     </main>
