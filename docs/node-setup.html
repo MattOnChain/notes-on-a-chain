@@ -146,26 +146,25 @@
                     <main>
                         <h1 id="bitcoin-node-setup-mac"><a class="header" href="#bitcoin-node-setup-mac">Bitcoin Node Setup (Mac)</a></h1>
 <blockquote>
-<p>Note: In this Bitcoin Core GUI (a.k.a. Bitcoin QT) setup, the blockchain data is set to be stored on an external drive named ‘Bitcoin’, in a folder named ‘Bitcoin’. With this non-standard configuration, many command line actions require the use of additional arguments to tell the binaries where to find required components. These arguments may not be required if upon installation, you accept the default location for your blockchain data.</p>
+<p>Note: In this Bitcoin Core GUI (a.k.a. Bitcoin QT) setup, the blockchain data is set to be stored on an external drive named ‘Bitcoin’, in a folder named ‘Bitcoin’. With this non-standard configuration, many command line actions require the use of additional arguments to tell the binaries where to find required files. These arguments may not be required if upon installation you accept the default location for your blockchain data.</p>
 </blockquote>
 <h2 id="install-bitcoin-gui-aka-bitcoin-qt"><a class="header" href="#install-bitcoin-gui-aka-bitcoin-qt">Install Bitcoin GUI (a.k.a. Bitcoin QT)</a></h2>
 <ol>
-<li>Go to <a href="https://bitcoincore.org/en/download/">Bitcoin Core</a> and download the Mac (ARM for M1/M2) .dmg of Bitcoin Core</li>
+<li>Go to <a href="https://bitcoincore.org/en/download/">Bitcoin Core</a> and download the Mac .dmg of Bitcoin Core (select ARM if your Mac has an M1 or M2 chip)</li>
 <li>Install Bitcoin Core and run it from the Applications menu</li>
-<li>Follow the prompts including configuring data store to use an external drive as desired.</li>
+<li>Follow the prompts including configuring the data store to use an external drive as desired</li>
 </ol>
 <blockquote>
 <p>Bitcoin core indexing is intensive with disk i.o. If possible, use an SSD for noticeably better results (faster and fewer corrupt file events). In this example, an external SSD was used.</p>
 </blockquote>
 <ol start="4">
-<li>The first process is to download the full blockchain. Wait as many days as it takes for this to complete. This process can be stopped and restarted as desired.</li>
 <li>Build the full blockchain index
 <ol>
 <li>Preferences &gt; Main: Check to Enable RPC server</li>
 <li>Open Configuration File: Enter ‘txindex=1’ (without quotes)</li>
 <li>Close to save the config file and click OK</li>
 <li>Quit Bitcoin Core and restart it.</li>
-<li>Wait as many days as it takes to complete the index</li>
+<li>Wait as many days as it takes to complete the index. This indexing process can be stopped and restarted as desired.</li>
 </ol>
 </li>
 </ol>
@@ -188,10 +187,10 @@
 <pre><code>brew install bitcoin
 </code></pre>
 <blockquote>
-<p>Note: Bitcoin binaries are placed in hidden path /opt/homebrew/opt/bitcoin/bin/ (use Command-Shift-Dot to see hidden files and folders).</p>
+<p>Note: Bitcoin binaries are placed in the hidden path /opt/homebrew/opt/bitcoin/bin/ (In Finder, use Command-Shift-Dot to see hidden files and folders).</p>
 </blockquote>
 <ol start="3">
-<li>Edit the Config file entry to share your previously acquired blockchain data file. This step is done for the unlikely case you have a reason to run the Bitcoin service instead of the daemon.
+<li>Edit the Config file entry to share the previously acquired blockchain data. This step is done for the unlikely case you have a reason to run the Bitcoin service instead of the daemon.
 <ol>
 <li>Navigate to Go &gt; Home &gt; Library &gt; Application Support</li>
 <li>On the Go menu hit Option to see the Library folder</li>
@@ -212,7 +211,7 @@ bitcoin-cli --version
 </ol>
 <pre><code>bitcoind -datadir=/Volumes/Bitcoin/Bitcoin
 </code></pre>
-<h2 id="other-helpful-commands"><a class="header" href="#other-helpful-commands">Other Helpful Commands</a></h2>
+<h2 id="other-commands"><a class="header" href="#other-commands">Other Commands</a></h2>
 <ul>
 <li>If instead of on-demand, you want to start bitcoin as a service</li>
 </ul>
@@ -238,13 +237,15 @@ bitcoin-cli --version
 </ul>
 <pre><code>bitcoin-cli -help
 </code></pre>
+<pre><code>bitcoin-cli -getinfo -help
+</code></pre>
 <ul>
 <li>Get Block Count (Note that <a href="https://ordinals.com/clock">Ordinals.com</a> also shows the latest block when you hover the cursor over the center of the clock.)</li>
 </ul>
 <pre><code>bitcoin-cli getblockcount
 </code></pre>
 <blockquote>
-<p>Important: At this stage you have both the Bitcoin Core GUI and Bitcoin Core daemon installed. These cannot be run simultaneously as they perform the same tasks and share local blockchain data. The GUI is an easy way to just run the core.  The deamon runs the core while also providing command line capabilities that are helpful, especially when troubleshooting.  Just close/stop one before opening/starting the other.</p>
+<p>Important: At this stage you have both the Bitcoin Core GUI and Bitcoin Core daemon installed. These cannot be run simultaneously as they share local blockchain data. The GUI is an easy way to just run the core.  The deamon runs the core while also providing command line capabilities that are helpful, especially when troubleshooting.  Just close/stop one before opening/starting the other.</p>
 </blockquote>
 <blockquote>
 <p>Reference: <a href="https://www.youtube.com/watch?v=zXlvkOSVM9M&amp;t=1s">Hell Money Podcast: How to Make an Inscription Part 1</a></p>

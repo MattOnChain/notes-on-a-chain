@@ -145,22 +145,18 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="ord-setup-mac"><a class="header" href="#ord-setup-mac">Ord Setup (Mac)</a></h1>
-<p>UNDER CONSTRUCTION</p>
-<h1 id="install-ord"><a class="header" href="#install-ord">Install Ord</a></h1>
-<blockquote>
-<p>Note: Cargo presents a simple method for installing Ord.  While we did not try this, instead of using Rust/Cargo you may be able to install the latest pre-built binary from Terminal with the following command.</p>
-</blockquote>
+<p>Cargo presents a simple method for installing Ord.  While we did not try this, instead of using Cargo you may be able to install the latest pre-built binary from Terminal with the following command.</p>
 <pre><code>curl --proto '=https' --tlsv1.2 -fsLS https://ordinals.com/install.sh | bash -s
 </code></pre>
 <p>The method chosen below uses Cargo to install Ord.</p>
 <h2 id="install-cargo-with-rustup"><a class="header" href="#install-cargo-with-rustup">Install Cargo with RustUp</a></h2>
 <p>Ord is written in Rust. RustUp installs the required Rust language and Cargo package manager. Commands below are to be used in Terminal.</p>
 <ol>
-<li>Go to https://rustup.rs and copy the command and paste &amp; run it in Terminal</li>
+<li>Go to https://rustup.rs and copy the command and paste it to run in Terminal</li>
 <li>Where you are presented an option and one is shown with “(default)”, just press enter at the prompt to use that default</li>
 <li>Add Cargo to the path
 <ol>
-<li>First if the following command returns &quot;cargo not found&quot;, that confirms Cargo is not already in the shell.</li>
+<li>If the following command returns &quot;cargo not found&quot;, that confirms Cargo is not already in the shell. Then proceed to next command (source...)</li>
 </ol>
 </li>
 </ol>
@@ -169,81 +165,152 @@
 <pre><code>source &quot;$HOME/.cargo/env&quot;
 </code></pre>
 <ol start="4">
-<li>Try again to confirm it now finds Cargo</li>
+<li>Try again to confirm Terminal now finds Cargo</li>
 </ol>
 <pre><code>which cargo
 </code></pre>
 <ol start="5">
 <li>Close Terminal and reopen it</li>
 </ol>
-<p>IGNORE THIS MESS... WORKING TO CLEAN IT UP</p>
-<h2 id="install-ord-1"><a class="header" href="#install-ord-1">Install Ord</a></h2>
-<p>o	Start your Bitcoin node (GUI is fine)
-o	Terminal: cargo install ord
-o	Once Ord is installed, you should be able to do <code>ord --version</code> in Terminal to confirm it’s found in the path and otherwise working as expected (or try ‘which ord’ to show where it is located)
-o	Note for reference: The ord binary is stored in /Users/mattlhx/.cargo/bin
-•	Build the Ord Index
-o	In the bitcoin.conf file add server=1, save, close and restart Bitcoin Core
-o	The default location for the Ord index is ‘/Users/mattlhx/Library/Application Support/ord’ but in this setup it will be created on an external drive
-	On the external drive, create a folder called Ord
-	In the new folder, add a plain text empty file called ‘index.redb’
-	Or download an index at https://45.128.27.75/ (https://discord.com/channels/987504378242007100/1083363982963908640) and place this as your starting index file
-o	To start building the index in Terminal: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie index
-o	Wait as long as it takes for the index build to complete
-	Note: If you did not move the index from its standard location, you do not need the --index argument
-	CTRL-C at any point to stop the process (it can be restarted later)</p>
-<p>Start the Ord Server</p>
-<p>•	Before starting Ord Server, create a backup of the ord index in case running the server corrupts your index file
-o	Note: Ord indexes while running Server.  So the index function is only used as a means to index when not running server.
-•	Start Ord Server: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie server
-•	In the browser go to http://localhost to access your local host of Ordinals.com content
-•	Congratulations. Bitcoin Core + Ord are fully installed and functioning.</p>
-<p>Create Aliases for Use in Terminal</p>
-<p>With your Bitcoin Core cookie file and your Ord index files in non-standard locations (external HD), you need to use the --cookie-file and --index arguments with every Ord command you run (e.g. updating the index or starting the server). To make this easier, you can create alias commands for use in Terminal.  Note: The below uses zsh. Similar steps exist to do the same with bash.)</p>
-<p>•	Open your zshrc file in Terminal: nano ~/.zshrc
-•	In the .zshrc file, create an alias by adding a line with the following format:
-•	alias alias_name='command_to_execute'
-o	Replace alias_name with the name you want to give to your alias, and command_to_execute with the command you want to execute when you use your alias.
-	alias ordindex='/Users/mattlhx/.cargo/bin/ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie index'
-	alias ordserver='/Users/mattlhx/.cargo/bin/ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie server'
-	alias bitcoindm='/opt/homebrew/Cellar/bitcoin/24.0.1/bin/bitcoind -datadir=/Bitcoin/Bitcoin'
-	Save the changes to the .zshrc file by pressing Ctrl+O and then Enter
-o	Exit the nano editor by pressing Ctrl+X
-•	To make the changes take effect, you can either restart your Terminal application, or type source ~/.zshrc to reload the .zshrc file and make your new alias available for use
-o	Now, whenever you type your alias in the Terminal, it will execute the command you specified in the .zshrc file.</p>
+<h2 id="install-ord"><a class="header" href="#install-ord">Install Ord</a></h2>
+<ol>
+<li>Start your Bitcoin node (Open Bitcoin QT from your Applications folder)</li>
+<li>In terminal, enter the install command</li>
+</ol>
+<pre><code>cargo install ord
+</code></pre>
+<ol start="3">
+<li>Once Ord is installed, the following command should reveal that Ord is installed by indicating its location. Alternately you can use the command 'which ord'</li>
+</ol>
+<pre><code>ord --version
+</code></pre>
+<blockquote>
+<p>Note for reference: The Ord binary is stored in /Users/yourusername/.cargo/bin</p>
+</blockquote>
+<h2 id="build-the-ord-index"><a class="header" href="#build-the-ord-index">Build the Ord Index</a></h2>
+<ol>
+<li>In the bitcoin.conf file add the following entry</li>
+</ol>
+<pre><code>server=1
+</code></pre>
+<ol start="2">
+<li>Save and close the bitcoin.conf file</li>
+<li>Restart Bitcoin Core</li>
+</ol>
+<blockquote>
+<p>The default location for the Ord index is ‘/Users/yourusername/Library/Application Support/ord’ but in this setup it will be created on an external drive. For performance reasons, an SSD drive is recommended. SSD is not explicitly required of course, but with it you will see dramatic speed improvement during indexing and the increased performance will reduce the number events resulting in a corrupt index file.</p>
+</blockquote>
+<ol start="4">
+<li>On the external drive, create a folder called 'Ord'</li>
+<li>In the new folder, add a plain text empty file called ‘index.redb’
+<ol>
+<li>Or <a href="https://45.128.27.75/">download an index file</a> as linked from a posting in <a href="https://discord.com/channels/987504378242007100/1083363982963908640">The Ordicord Discord server</a> and place this as your starting index file</li>
+</ol>
+</li>
+<li>Start building the index with the following command where the additional arguments are required to point to the external hard drive location of the index.redb and cookie.index files</li>
+</ol>
+<blockquote>
+<p>Note: If you did not move the Ord index from its standard location, you do not need the --index argument</p>
+</blockquote>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie index
+</code></pre>
+<ol start="7">
+<li>Wait as long as it takes for the index build to complete</li>
+<li>In Termainal, use CTRL-C at any point to stop the process (it can be restarted later)</li>
+</ol>
+<h2 id="start-the-ord-server"><a class="header" href="#start-the-ord-server">Start the Ord Server</a></h2>
+<ol>
+<li>Before starting Ord Server, create a backup of the ord index in case file ever gets corrupted</li>
+</ol>
+<blockquote>
+<p>Important: You will want to routinely backup your Ord index file as it will become corrupted at times. When that occurs (as is indicated when the Ord server starts throwing up errors) you simply delete the index.redb file and replace it with your latest backup. Ord will then rebuild the index from where it left off.</p>
+</blockquote>
+<blockquote>
+<p>Note: Ord indexes automatically while running the Ord Server. So the index function (not shown below) is only used as a means to index when not running server.</p>
+</blockquote>
+<ol>
+<li>Start Ord Server</li>
+</ol>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie server
+</code></pre>
+<ol start="2">
+<li>In the browser go to http://localhost to access your local host of Ordinals.com</li>
+</ol>
+<blockquote>
+<p>Congratulations. Bitcoin Core and Ord are fully installed and functioning. You always need Bitcoin running before starting Ord. And at any time, you can use CTRL-C to stop the Ord server and restart it.</p>
+</blockquote>
 <blockquote>
 <p>Reference: <a href="https://www.youtube.com/watch?v=zXlvkOSVM9M&amp;t=1s">Hell Money Podcast: How to Make an Inscription Part 1</a></p>
 </blockquote>
 <h2 id="create-an-ord-wallet--inscribe"><a class="header" href="#create-an-ord-wallet--inscribe">Create an Ord Wallet &amp; Inscribe</a></h2>
+<p>Inscription services make it very easy to inscribe anything. However, for more advanced inscription needs such as inscribing on an Uncommon sat you are holding, you may need to inscribe from your Ord server. The following steps provide the basic foundation for inscribing from Ord. </p>
+<h3 id="create-the-wallet"><a class="header" href="#create-the-wallet">Create the Wallet</a></h3>
+<ol>
+<li>Kill the Ord server with CTRL-C</li>
+</ol>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet create | pbcopy
+</code></pre>
+<blockquote>
+<p>Note: Add ‘ | pbcopy’ to the end of the command if you want the resulting seed phrase to automatically be copied to the clipboard</p>
+</blockquote>
+<ol start="2">
+<li>Temporarily paste the seed phrase so that you can later save it as desired (ex. print it to hardcopy and lock it in your safe)</li>
+</ol>
+<h3 id="create-an-inscription"><a class="header" href="#create-an-inscription">Create an Inscription</a></h3>
+<ol>
+<li>To get a fresh address</li>
+</ol>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet receive
+</code></pre>
+<ol start="2">
+<li>
+<p>Send BTC to this address as will be need to pay inscription transaction fees assessed by the network.</p>
+</li>
+<li>
+<p>Ord will play a sound when the payment transaction is confirmed. Wait for Bitcoin QT to show the updated available balance. Or go to <a href="https://mempool.space">mempool.space</a> and paste the address to see the status of the transaction.</p>
+</li>
+<li>
+<p>Confirm the wallet balance</p>
+</li>
+</ol>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet balance
+</code></pre>
+<ol start="5">
+<li>Inscribe while setting the fee rate to an appropriate level as can found on <a href="https://mempool.space">mempool.space</a></li>
+</ol>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/yourusername/Desktop/OrdinalsTest.txt --fee-rate 35
+</code></pre>
+<blockquote>
+<p>This test is to create a text-based Ordinal with the contents of OrdinalsTest.txt as the body of the Ordinal. For a higher fee you can instead inscribe anything (ex. .webp file, which is an ideally compressed image).</p>
+</blockquote>
+<ol start="6">
+<li>Wait for the commit and reveal transactions to complete</li>
+<li>Note your inscription ID is shown in the output. You can paste that into Ordinals.com or your Ord page to view the inscription</li>
+<li>The inscription is sent to a new address in your Ord wallet</li>
+</ol>
+<blockquote>
+<p>Note: To do a dry run (perhaps to see the total cost before actually broadcasting the transaction)</p>
+</blockquote>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/yourusername/Desktop/OrdinalsTest.txt --destination bc1addresstoreceivetheinscription1234 --fee-rate 35 --dry-run
+</code></pre>
+<ol start="9">
+<li>To see your inscriptions</li>
+</ol>
+<pre><code>ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscriptions
+</code></pre>
+<ol start="10">
+<li>Transfer the new Ordinal to a keeper wallet as desired. For the safety afforded with its coin-control features, this is most easily done from Sparrow after you import your Ord wallet using the seed phrase. And if after importing the Ord wallet into Sparrow, Sparrow does not reveal your inscription, try changing Sparrow's Gap Limit setting (Wallet &gt; Advanced &gt; Gap Limit) from the default to something like 250. This setting tells Sparrow how many empty address to find before it stops scanning them for transactions.</li>
+</ol>
 <blockquote>
 <p>Reference: <a href="https://www.youtube.com/watch?v=LXrUu8WOrHo">Hell Money Podcast: How to Make an Inscription Part 2</a></p>
 </blockquote>
-<p>•	Create the wallet
-o	Kill the server with CTRL-C
-o	To create the wallet: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet create | pbcopy (Note: Add ‘ | pbcopy’ to the end of the command if you want the resulting seed phrase to automatically be copied to the clipboard 
-o	Temporarily paste the seed phrase as desired (Careful… you know the deal with seed phrases)
-•	Create an inscription
-o	To get a fresh address: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet receive
-o	Send BTC to this address (to cover inscription fees)
-	Ord will play a sound when the transaction is confirmed
-	Wait for QT to show the updated available balance
-	Or go to mempool.space and paste the address to see the status of the transaction
-	To confirm with Ord: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet balance
-o	ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/mattlhx/Desktop/OrdinalsTest.txt --fee-rate 20 
-	This test is to create a text-based Ordinal with the contents of filename.txt as the body of the Ordinal
-	Wait for the commit and reveal transactions to complete
-•	Note your inscription ID is shown in the output as well. You can paste that into Ordinals.com or your Ord page to see the inscription
-	The inscription is sent to a new address in the wallet
-	To do a dry run (perhaps to see the total cost before actually broadcasting the transaction): ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/mattlhx/Desktop/OrdinalsTest.txt --destination bc1pqlgmfc3v84ksw0e2603tcswqutllzxm99xl4luavvsdxdudtcn0svkqe78 --fee-rate 20 --dry-run
-•	Another example: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscribe /Users/mattlhx/Desktop/Fool\ 151\ Pop\ Artist.webp --destination bc1pkuqhjz9298gwwfr7yewg47a3gr5hgqmu247h2vh6m9jkp269w68svlwwx7 --fee-rate 15 --dry-run
-o	To see your inscription: ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet inscriptions
-•	Transfer the new Ordinal to a keeper wallet
-o	For the safety afforded with its coin control features, this is most easily done from Sparrow where you have imported this Ord wallet using the seed phrase</p>
-<p>Other Commands</p>
-<p>ord --help
+<h2 id="other-commands"><a class="header" href="#other-commands">Other Commands</a></h2>
+<pre><code>ord --help
+
 ord wallet -help
-ord ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet balance</p>
-<p>bitcoin-cli -getinfo -help</p>
+
+ord --index /Volumes/Bitcoin/Ord/index.redb --cookie-file /Volumes/Bitcoin/Bitcoin/.cookie wallet balance
+</code></pre>
 
                     </main>
 
