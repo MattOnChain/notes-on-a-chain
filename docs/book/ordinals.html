@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ordinals</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ordinals.html" class="active"><strong aria-hidden="true">1.</strong> Ordinals</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="inscribing.html"><strong aria-hidden="true">1.1.</strong> Inscribing</a></li><li class="chapter-item expanded "><a href="padding.html"><strong aria-hidden="true">1.2.</strong> Padding</a></li></ol></li><li class="chapter-item expanded "><a href="sat-hunting.html"><strong aria-hidden="true">2.</strong> Sat Hunting</a></li><li class="chapter-item expanded "><a href="brc20.html"><strong aria-hidden="true">3.</strong> BRC-20</a></li><li class="chapter-item expanded "><a href="domain-names.html"><strong aria-hidden="true">4.</strong> Domain Names</a></li><li class="chapter-item expanded "><a href="wallets.html"><strong aria-hidden="true">5.</strong> Wallets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sparrow.html"><strong aria-hidden="true">5.1.</strong> Sparrow</a></li><li class="chapter-item expanded "><a href="xverse-hiro.html"><strong aria-hidden="true">5.2.</strong> Xverse & Hiro</a></li></ol></li><li class="chapter-item expanded "><a href="emblem-vault.html"><strong aria-hidden="true">6.</strong> Emblem Vault</a></li><li class="chapter-item expanded "><a href="node-setup.html"><strong aria-hidden="true">7.</strong> Bitcoin Node Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="node-update.html"><strong aria-hidden="true">7.1.</strong> Update Bitcoin Node to a New Release</a></li></ol></li><li class="chapter-item expanded "><a href="ord-setup.html"><strong aria-hidden="true">8.</strong> Ord Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ord-update.html"><strong aria-hidden="true">8.1.</strong> Update Ord to a New Release</a></li></ol></li><li class="chapter-item expanded "><a href="links.html"><strong aria-hidden="true">9.</strong> Links</a></li><li class="chapter-item expanded "><a href="who-to-follow.html"><strong aria-hidden="true">10.</strong> Who to Follow</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">11.</strong> Glossary</a></li><li class="chapter-item expanded "><a href="macos-tips.html"><strong aria-hidden="true">12.</strong> macOS Tips</a></li><li class="chapter-item expanded "><a href="mdbook.html"><strong aria-hidden="true">13.</strong> mdBook</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ordinals"><a class="header" href="#ordinals">Ordinals</a></h1>
+<p>Ordinals are the result of Ordinal Theory.</p>
+<p>Ordinal Theory is first and foremost a protocol for assigning serial numbers to satoshis.</p>
+<p>A satoshi is the smallest unit of currency on the Bitcoin network. One bitcoin is comprised of 100,000,000 satoshis.</p>
+<p>Individual satoshis can be inscribed with data such as an image or string of text. Like any satoshi, they can then be held in Bitcoin wallets and transferred with a Bitcoin transaction.</p>
+<p>These inscribed satoshis - or &quot;inscriptions&quot; - are referred to as Ordinals. </p>
+<blockquote>
+<p>Much in the way a Bitcoin wallet parses the blockchain to reveal your balance and transactions, think of Ordinal Theory as a new lens through which to view the same blockchain. This new lens reveals images and other content found alongside transaction data. That content and each underlying satoshi is then indexed while applying a serial number to each.</p>
+</blockquote>
+<p>Ordinal Theory created two main elements:</p>
+<ol>
+<li>Each individual <strong>Sat</strong> is tracked with a sequential sat numbering scheme. To distinguish them for purposes of this discussion, these are uninscribed sats.</li>
+<li><strong>Ordinals</strong> are inscribed sats tracked with a sequential Ordinal numbering scheme.</li>
+</ol>
+<h2 id="how-does-it-work"><a class="header" href="#how-does-it-work">How Does It Work?</a></h2>
+<p>Inscriptions are created when data is written to a satoshi in accordance with the inscription content model. In addition to the content itself, the inscription includes an Ordinal identifier (Ord) and a content type (or MIME type) that allows readers to know how to handle the content.</p>
+<p>This is the same MIME data model used by the web, allowing inscriptions to evolve with the web, in support of any content supported by web browsers - all without requiring changes to the underlying protocol.</p>
+<p>Ordinal Theory did not change how the blockchain works. Instead, two previous Bitcoin upgrades (SegWit and Taproot) introduced changes that made it possible to store a larger amount of data in a way that is more affordable (cheaper fees tied to the payload).</p>
+<p>Unlike Ethereum NFTs that have content stored off-chain - typically on IPFS - Ordinal content is stored directly on-chain. The inscription data is posted as part of the &quot;witness&quot; data - the portion of the transaction that stores signatures.</p>
+<p>Ordinals are always immutable such that it is impossible to alter an Ordinal after it has been created.</p>
+<p>If you believe the Bitcoin network is permanent, then the content of Ordinals is permanent as well. Ordinals will outlive us all. This is a significant difference when compared to Ethereum NFTs wherein eventually someone will stop paying for persistent IPFS storage and the NFT will cease to reveal an image.</p>
+<h2 id="do-ordinals-hinder-bitcoins-ability-to-function-as-decentralized-money"><a class="header" href="#do-ordinals-hinder-bitcoins-ability-to-function-as-decentralized-money">Do Ordinals Hinder Bitcoin's Ability to Function as Decentralized Money?</a></h2>
+<p>No. Bitcoin is and will always be a solution designed to decentralize money.</p>
+<p>Ordinal Theory can help Bitcoin achieve its mission. First, inscriptions incur increased fees for miners. These miner fees help improve the security and resiliency of the network.</p>
+<p>Ordinals will attract new participants that start collecting digital artifacts, but eventually become evangelists for Bitcoin as decentralized money.</p>
+<p>Builders will build. More use cases and more users of Bitcoin will compel wallet developers and other solutions to improve and create wholly new user experiences. In this way, Ordinals has the potential to spark a new wave of development around the Bitcoin blockchain.</p>
+<p>More people will be compelled to run a Bitcoin full node, increasing the strength of the network.</p>
+<p>Inscriptions will stress test the network, serving to identify opportunities for improvement as Bitcoin continues to evolve.</p>
+<p>Ordinals make Bitcoin exciting to OGs and new participants alike.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="inscribing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="inscribing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
